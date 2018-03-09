@@ -5,9 +5,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-public class Window {
+public class MainWindow {
 
-	private JFrame frmKeylistener;
+	private JFrame mainFrame;
 
 	/**
 	 * Launch the application.
@@ -16,10 +16,10 @@ public class Window {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Window window = new Window();
-					window.frmKeylistener.setVisible(true);
+					MainWindow window = new MainWindow();
+					window.mainFrame.setVisible(true);
 					
-					GlobalKeyboard keyboard = new GlobalKeyboard();
+					GlobalKeyboardListener keyboardListener = new GlobalKeyboardListener();
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -31,7 +31,7 @@ public class Window {
 	/**
 	 * Create the application.
 	 */
-	public Window() {
+	public MainWindow() {
 		initialize();
 	}
 
@@ -39,11 +39,11 @@ public class Window {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmKeylistener = new JFrame();
-		frmKeylistener.setTitle("KeyListener");
-		frmKeylistener.setBounds(100, 100, 450, 300);
-		frmKeylistener.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmKeylistener.getContentPane().setLayout(null);
+		mainFrame = new JFrame();
+		mainFrame.setTitle("Stratagem Launcher");
+		mainFrame.setBounds(100, 100, 450, 300);
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.getContentPane().setLayout(null);
 		
 		
 	}

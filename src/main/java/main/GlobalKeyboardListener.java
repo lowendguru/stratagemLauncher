@@ -1,6 +1,5 @@
 package main;
 
-
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -10,11 +9,11 @@ import lc.kra.system.keyboard.GlobalKeyboardHook;
 import lc.kra.system.keyboard.event.GlobalKeyAdapter;
 import lc.kra.system.keyboard.event.GlobalKeyEvent;
 
-public class GlobalKeyboard {
+public class GlobalKeyboardListener {
 	private static boolean run = true;
 	private static int time = 50;
 
-	public  GlobalKeyboard() {
+	public GlobalKeyboardListener() {
 		// might throw a UnsatisfiedLinkError if the native library fails to load or a
 		// RuntimeException if hooking fails
 		GlobalKeyboardHook keyboardHook = new GlobalKeyboardHook(true); // use false here to switch to hook instead of
@@ -77,13 +76,6 @@ public class GlobalKeyboard {
 			}
 		});
 
-//		try {
-//			while (run)
-//				Thread.sleep(128);
-//		} catch (InterruptedException e) {
-//			/* nothing to do here */ } finally {
-//			keyboardHook.shutdownHook();
-//		}
 	}
 
 	protected static void pressSequence(String s) throws AWTException, InterruptedException {
