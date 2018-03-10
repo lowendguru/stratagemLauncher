@@ -35,6 +35,10 @@ public class GlobalKeyboardListener {
 				String sequence = "";
 
 				switch (eventValue) {
+				case 96:
+					// 0
+					sequence = "";
+					break;
 				case 97:
 					// 1 mines
 					sequence = "adsw";
@@ -42,6 +46,10 @@ public class GlobalKeyboardListener {
 				case 98:
 					// 2 turret
 					sequence = "aswda";
+					break;
+				case 99:
+					// 3 
+					sequence = "";
 					break;
 				case 100:
 					// 4 sniffer
@@ -65,6 +73,10 @@ public class GlobalKeyboardListener {
 					break;
 				case 105:
 					// 9 mech
+					sequence = "sdwass";
+					break;
+				case 110:
+					// . (dot)
 					sequence = "sdwass";
 					break;
 				}
