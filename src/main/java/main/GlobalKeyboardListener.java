@@ -10,8 +10,8 @@ import lc.kra.system.keyboard.event.GlobalKeyAdapter;
 import lc.kra.system.keyboard.event.GlobalKeyEvent;
 
 public class GlobalKeyboardListener {
-	private static boolean run = true;
-	private static int time = 50;
+
+	private static int timeDelay = 50;
 
 	public GlobalKeyboardListener() {
 		// might throw a UnsatisfiedLinkError if the native library fails to load or a
@@ -28,29 +28,40 @@ public class GlobalKeyboardListener {
 			@Override
 			public void keyPressed(GlobalKeyEvent event) {
 				System.out.println(event);
-				// if(event.getVirtualKeyCode()==GlobalKeyEvent.VK_ESCAPE)
-				// run = false;
-				System.out.println("mio:" + event.getVirtualKeyCode());
 
-				int valorEvent = event.getVirtualKeyCode();
+				System.out.println("event:" + event.getVirtualKeyCode());
+
+				int eventValue = event.getVirtualKeyCode();
 				String sequence = "";
 
-				switch (valorEvent) {
+				switch (eventValue) {
+				case 97:
+					// 1 mines
+					sequence = "adsw";
+					break;
+				case 98:
+					// 2 turret
+					sequence = "aswda";
+					break;
+				case 100:
+					// 4 sniffer
+					sequence = "ssdw";
+					break;
 				case 101:
 					// 5 reinforce
 					sequence = "wsdaw";
 					break;
 				case 102:
-					// 6
-					sequence = "wasd";
+					// 6 hellbomb
+					sequence = "wadsws";
 					break;
 				case 103:
-					// 7 dive bomb
-					sequence = "ddd";
+					// 7 railcannon
+					sequence = "dswsa";
 					break;
 				case 104:
-					// 8 recoiless
-					sequence = "sadda";
+					// 8 eat
+					sequence = "sadws";
 					break;
 				case 105:
 					// 9 mech
@@ -83,40 +94,40 @@ public class GlobalKeyboardListener {
 
 		Robot r = new Robot();
 		r.keyPress(KeyEvent.VK_CONTROL); // ctrl
-		Thread.sleep(time);
+		Thread.sleep(timeDelay);
 
 		for (int i = 0; i < s.length(); i++) {
 
 			int ch = s.charAt(i);
-			System.out.println("int ch= " + ch);
+			System.out.println("int char= " + ch);
 
 			switch (ch) {
 			case 119:
 				// w
 				r.keyPress(KeyEvent.VK_W); // w
-				Thread.sleep(time);
+				Thread.sleep(timeDelay);
 				r.keyRelease(KeyEvent.VK_W);
 				break;
 			case 97:
 				// w
 				r.keyPress(KeyEvent.VK_A); // w
-				Thread.sleep(time);
+				Thread.sleep(timeDelay);
 				r.keyRelease(KeyEvent.VK_A);
 				break;
 			case 115:
 				// w
 				r.keyPress(KeyEvent.VK_S); // w
-				Thread.sleep(time);
+				Thread.sleep(timeDelay);
 				r.keyRelease(KeyEvent.VK_S);
 				break;
 			case 100:
 				// w
 				r.keyPress(KeyEvent.VK_D); // w
-				Thread.sleep(time);
+				Thread.sleep(timeDelay);
 				r.keyRelease(KeyEvent.VK_D);
 				break;
 			}
-			Thread.sleep(time);
+			Thread.sleep(timeDelay);
 
 		}
 
