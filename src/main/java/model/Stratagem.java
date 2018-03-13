@@ -5,7 +5,7 @@ public class Stratagem {
 	private String name;
 	private String sequence;
 	private int type;
-	// icon
+	private String iconFileLocation;
 
 	public Stratagem() {
 
@@ -33,6 +33,14 @@ public class Stratagem {
 
 	public void setType(int type) {
 		this.type = type;
+	}
+
+	public String getIconFileLocation() {
+		return iconFileLocation;
+	}
+
+	public void setIconFileLocation(String iconFileLocation) {
+		this.iconFileLocation = iconFileLocation;
 	}
 
 }
