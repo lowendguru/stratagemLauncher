@@ -69,14 +69,14 @@ public class MainWindow {
 		mainFrame = new JFrame();
 		mainFrame.setResizable(false);
 		mainFrame.setTitle("Stratagem Launcher");
-		mainFrame.setBounds(100, 100, 326, 444);
+		mainFrame.setBounds(100, 100, 313, 444);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.getContentPane().setLayout(null);
 		
 		JLabel labelLogo = new JLabel("");
 		labelLogo.setHorizontalAlignment(SwingConstants.CENTER);
 		labelLogo.setIcon(new ImageIcon(MainWindow.class.getResource("/resources/Logo-Helldivers (Custom).png")));
-		labelLogo.setBounds(0, 0, 181, 56);
+		labelLogo.setBounds(0, 0, 173, 68);
 		mainFrame.getContentPane().add(labelLogo);
 		
 		JButton button7 = new JButton("7");
