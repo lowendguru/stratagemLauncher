@@ -1,9 +1,11 @@
 package main;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,7 +13,9 @@ import javax.swing.border.EmptyBorder;
 import model.Stratagem;
 
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 public class StratagemSelectionWindow extends JFrame {
@@ -46,21 +50,36 @@ public class StratagemSelectionWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
+		JPanel containerPanel = new JPanel();
+		containerPanel.setLayout(new BoxLayout(containerPanel, BoxLayout.Y_AXIS));
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(5, 5, 439, 457);
-		// contentPane.add(scrollPane);
+		scrollPane.add(containerPanel);
+		scrollPane.setViewportView(containerPanel);
 
 		ArrayList<Stratagem> stratagemsList = new ArrayList<Stratagem>();
 
 		stratagemsList.add(new Stratagem("nombre1", "wasd", 1, "48px-Strat_A_MG-II_Minigun_Turret_mk1.png"));
+		stratagemsList.add(new Stratagem("nombre2", "wasd", 1, "48px-Strat_A_MG-II_Minigun_Turret_mk1.png"));
+		stratagemsList.add(new Stratagem("nombre1", "wasd", 1, "48px-Strat_A_MG-II_Minigun_Turret_mk1.png"));
+		stratagemsList.add(new Stratagem("nombre2", "wasd", 1, "48px-Strat_A_MG-II_Minigun_Turret_mk1.png"));
+		stratagemsList.add(new Stratagem("nombre1", "wasd", 1, "48px-Strat_A_MG-II_Minigun_Turret_mk1.png"));
+		stratagemsList.add(new Stratagem("nombre2", "wasd", 1, "48px-Strat_A_MG-II_Minigun_Turret_mk1.png"));
+		stratagemsList.add(new Stratagem("nombre1", "wasd", 1, "48px-Strat_A_MG-II_Minigun_Turret_mk1.png"));
+		stratagemsList.add(new Stratagem("nombre2", "wasd", 1, "48px-Strat_A_MG-II_Minigun_Turret_mk1.png"));
+		stratagemsList.add(new Stratagem("nombre1", "wasd", 1, "48px-Strat_A_MG-II_Minigun_Turret_mk1.png"));
+		stratagemsList.add(new Stratagem("nombre2", "wasd", 1, "48px-Strat_A_MG-II_Minigun_Turret_mk1.png"));
+		stratagemsList.add(new Stratagem("nombre1", "wasd", 1, "48px-Strat_A_MG-II_Minigun_Turret_mk1.png"));
+		stratagemsList.add(new Stratagem("nombre2", "wasd", 1, "48px-Strat_A_MG-II_Minigun_Turret_mk1.png"));
 
 		for (Stratagem s : stratagemsList) {
+			containerPanel.setPreferredSize(new Dimension(400, (55 * stratagemsList.size())));
 			PanelStratagem ps = new PanelStratagem(s);
-			scrollPane.setViewportView(ps);
-			scrollPane.add(ps);
-			scrollPane.repaint();
+			containerPanel.add(ps);
+
 		}
 
 		contentPane.add(scrollPane);
