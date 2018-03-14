@@ -12,6 +12,7 @@ import lc.kra.system.keyboard.event.GlobalKeyEvent;
 public class GlobalKeyboardListener {
 
 	private static int timeDelay = 50;
+	private static boolean testing = true;
 
 	public GlobalKeyboardListener() {
 		// might throw a UnsatisfiedLinkError if the native library fails to load or a
@@ -20,7 +21,7 @@ public class GlobalKeyboardListener {
 																		// raw input
 
 		System.out.println(
-				"Global keyboard hook successfully started, press [escape] key to shutdown. Connected keyboards:");
+				"Global keyboard hook successfully started. Connected keyboards:");
 		for (Entry<Long, String> keyboard : GlobalKeyboardHook.listKeyboards().entrySet())
 			System.out.format("%d: %s\n", keyboard.getKey(), keyboard.getValue());
 
@@ -48,7 +49,7 @@ public class GlobalKeyboardListener {
 					sequence = "aswda";
 					break;
 				case 99:
-					// 3 
+					// 3
 					sequence = "";
 					break;
 				case 100:
@@ -105,7 +106,9 @@ public class GlobalKeyboardListener {
 		System.out.println("Press sequence: " + s);
 
 		Robot r = new Robot();
-		r.keyPress(KeyEvent.VK_CONTROL); // ctrl
+
+		if (!testing)
+			r.keyPress(KeyEvent.VK_CONTROL); // ctrl
 		Thread.sleep(timeDelay);
 
 		for (int i = 0; i < s.length(); i++) {
@@ -143,7 +146,8 @@ public class GlobalKeyboardListener {
 
 		}
 
-		r.keyRelease(KeyEvent.VK_CONTROL);// ctrl
+		if (!testing)
+			r.keyRelease(KeyEvent.VK_CONTROL);// ctrl
 		r = null;
 
 	}
