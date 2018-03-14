@@ -17,11 +17,10 @@ public class GlobalKeyboardListener {
 	public GlobalKeyboardListener() {
 		// might throw a UnsatisfiedLinkError if the native library fails to load or a
 		// RuntimeException if hooking fails
-		GlobalKeyboardHook keyboardHook = new GlobalKeyboardHook(true); // use false here to switch to hook instead of
-																		// raw input
+		// use false here to switch to hook instead of raw input
+		GlobalKeyboardHook keyboardHook = new GlobalKeyboardHook(true);
 
-		System.out.println(
-				"Global keyboard hook successfully started. Connected keyboards:");
+		System.out.println("Global keyboard hook successfully started. Connected keyboards:");
 		for (Entry<Long, String> keyboard : GlobalKeyboardHook.listKeyboards().entrySet())
 			System.out.format("%d: %s\n", keyboard.getKey(), keyboard.getValue());
 

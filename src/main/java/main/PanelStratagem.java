@@ -26,7 +26,7 @@ public class PanelStratagem extends JPanel {
 
 		JLabel labelName = new JLabel(stratagem.getName());
 		labelName.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		labelName.setBounds(82, 11, 203, 32);
+		labelName.setBounds(82, 11, 358, 32);
 		add(labelName);
 
 		JSeparator separator = new JSeparator();
