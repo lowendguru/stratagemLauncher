@@ -9,15 +9,19 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+
+import model.Stratagem;
+
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainWindow {
 
 	private JFrame mainFrame;
+	private StratagemSelectionWindow stratagemSelectionWindow = new StratagemSelectionWindow();
+	private static Stratagem[] stratagemMap = new Stratagem[11];
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		
 	
@@ -46,7 +50,7 @@ public class MainWindow {
 					MainWindow window = new MainWindow();
 					window.mainFrame.setVisible(true);
 					
-					GlobalKeyboardListener keyboardListener = new GlobalKeyboardListener();
+					GlobalKeyboardListener keyboardListener = new GlobalKeyboardListener(stratagemMap);
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -104,6 +108,11 @@ public class MainWindow {
 		mainFrame.getContentPane().add(button6);
 		
 		JButton button1 = new JButton("1");
+		button1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actionPressedButton(1);
+			}
+		});
 		button1.setBounds(10, 237, 89, 74);
 		mainFrame.getContentPane().add(button1);
 		
@@ -123,6 +132,12 @@ public class MainWindow {
 		button0.setBounds(10, 322, 188, 74);
 		mainFrame.getContentPane().add(button0);
 		
+		
+	}
+
+	protected void actionPressedButton(int pressedButton) {
+		// action when GUI button is pressed
+		stratagemSelectionWindow.selectNewStratagemForButton(pressedButton, stratagemMap);
 		
 	}
 }

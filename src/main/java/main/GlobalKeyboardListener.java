@@ -8,13 +8,14 @@ import java.util.Map.Entry;
 import lc.kra.system.keyboard.GlobalKeyboardHook;
 import lc.kra.system.keyboard.event.GlobalKeyAdapter;
 import lc.kra.system.keyboard.event.GlobalKeyEvent;
+import model.Stratagem;
 
 public class GlobalKeyboardListener {
 
 	private static int timeDelay = 50;
 	private static boolean testing = true;
 
-	public GlobalKeyboardListener() {
+	public GlobalKeyboardListener(Stratagem[] stratagemMap) {
 		// might throw a UnsatisfiedLinkError if the native library fails to load or a
 		// RuntimeException if hooking fails
 		// use false here to switch to hook instead of raw input

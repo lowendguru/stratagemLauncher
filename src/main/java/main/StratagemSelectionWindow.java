@@ -75,4 +75,8 @@ public class StratagemSelectionWindow extends JFrame {
 		contentPane.repaint();
 	}
 
+	public void selectNewStratagemForButton(int pressedButton, Stratagem[] stratagemMap) {
+		this.setVisible(true);
+	}
+
 }
