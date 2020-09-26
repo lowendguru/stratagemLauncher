@@ -78,14 +78,12 @@ public class MainWindow {
 
 		JLabel labelLogo = new JLabel("");
 		labelLogo.setHorizontalAlignment(SwingConstants.CENTER);
-	//	ClassLoader classLoader = getClass().getClassLoader();
-
 		labelLogo.setBounds(10, 0, 287, 68);
 		
 		
-		labelLogo.setIcon(new ImageIcon("D:\\PROGRAMACION\\repo\\GitHub\\stratagemLauncher\\resources\\Logo-Helldivers-custom.png"));
+		labelLogo.setIcon(new ImageIcon(ClassLoader.getSystemResource("Logo-Helldivers-custom.png")));
 		
-		labelLogo.setVisible(true);
+	//	labelLogo.setVisible(true);
 		mainFrame.getContentPane().add(labelLogo);
 
 		JButton button7 = new JButton("7");
