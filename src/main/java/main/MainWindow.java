@@ -15,6 +15,7 @@ import model.Stratagem;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class MainWindow {
 
@@ -68,6 +69,7 @@ public class MainWindow {
 	 */
 	private void initialize() {
 		mainFrame = new JFrame();
+		mainFrame.getContentPane().setBackground(Color.DARK_GRAY);
 		mainFrame.setResizable(false);
 		mainFrame.setTitle("Stratagem Launcher");
 		mainFrame.setBounds(100, 100, 313, 444);
@@ -76,9 +78,14 @@ public class MainWindow {
 
 		JLabel labelLogo = new JLabel("");
 		labelLogo.setHorizontalAlignment(SwingConstants.CENTER);
-		ClassLoader classLoader = getClass().getClassLoader();
-		labelLogo.setIcon(new ImageIcon(MainWindow.class.getResource("/Logo-Helldivers (Custom).png")));
-		labelLogo.setBounds(0, 0, 173, 68);
+	//	ClassLoader classLoader = getClass().getClassLoader();
+
+		labelLogo.setBounds(10, 0, 287, 68);
+		
+		
+		labelLogo.setIcon(new ImageIcon("D:\\PROGRAMACION\\repo\\GitHub\\stratagemLauncher\\resources\\Logo-Helldivers-custom.png"));
+		
+		labelLogo.setVisible(true);
 		mainFrame.getContentPane().add(labelLogo);
 
 		JButton button7 = new JButton("7");
