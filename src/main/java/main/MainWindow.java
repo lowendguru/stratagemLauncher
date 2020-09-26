@@ -20,6 +20,7 @@ import java.awt.Color;
 
 public class MainWindow {
 
+	private static boolean testing = true;
 	private JFrame mainFrame;
 	private StratagemSelectionWindow stratagemSelectionWindow = new StratagemSelectionWindow();
 	private static int stratagemMapSize = 11;
@@ -53,13 +54,15 @@ public class MainWindow {
 					MainWindow window = new MainWindow();
 					window.mainFrame.setVisible(true);
 
-					new GlobalKeyboardListener(stratagemMap);
+					new GlobalKeyboardListener(stratagemMap, testing);
 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
+
+		System.out.println("Testing mode: " + testing);
 	}
 
 	/**
@@ -82,6 +85,9 @@ public class MainWindow {
 		mainFrame.setBounds(100, 100, 313, 444);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.getContentPane().setLayout(null);
+		mainFrame.setIconImage(new ImageIcon(ClassLoader.getSystemResource("16_-_Colonel_Commandant.png")).getImage());
+	
+		//
 
 		JLabel labelLogo = new JLabel("");
 		labelLogo.setHorizontalAlignment(SwingConstants.CENTER);

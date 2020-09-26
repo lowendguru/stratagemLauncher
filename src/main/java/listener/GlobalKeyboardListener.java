@@ -14,11 +14,12 @@ import model.Stratagem;
 public class GlobalKeyboardListener {
 
 	private static int timeDelay = 50;
-	private static boolean testing = true;
+	private static boolean testing;
+
 	public ArrayList<Stratagem> stratagemMap;
 
-	public GlobalKeyboardListener(final ArrayList<Stratagem> stratagemMap) {
-
+	public GlobalKeyboardListener(final ArrayList<Stratagem> stratagemMap, boolean testing) {
+		GlobalKeyboardListener.testing = testing;
 		this.stratagemMap = stratagemMap;
 
 		// might throw a UnsatisfiedLinkError if the native library fails to load or a
@@ -38,7 +39,6 @@ public class GlobalKeyboardListener {
 				System.out.println("event:" + event.getVirtualKeyCode());
 
 				int eventValue = event.getVirtualKeyCode();
-				String sequence = "";
 
 				switch (eventValue) {
 				case 96:
@@ -136,8 +136,9 @@ public class GlobalKeyboardListener {
 
 			Robot r = new Robot();
 
+			// Press CTRL key
 			if (!testing)
-				r.keyPress(KeyEvent.VK_CONTROL); // ctrl
+				r.keyPress(KeyEvent.VK_CONTROL); 
 			Thread.sleep(timeDelay);
 
 			for (int i = 0; i < s.length(); i++) {
@@ -176,7 +177,7 @@ public class GlobalKeyboardListener {
 			}
 
 			if (!testing)
-				r.keyRelease(KeyEvent.VK_CONTROL);// ctrl
+				r.keyRelease(KeyEvent.VK_CONTROL);
 			r = null;
 		} catch (AWTException e) {
 			// TODO Auto-generated catch block
