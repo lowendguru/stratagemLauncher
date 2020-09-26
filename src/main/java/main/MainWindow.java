@@ -85,9 +85,7 @@ public class MainWindow {
 		mainFrame.setBounds(100, 100, 313, 444);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.getContentPane().setLayout(null);
-		mainFrame.setIconImage(new ImageIcon(ClassLoader.getSystemResource("16_-_Colonel_Commandant.png")).getImage());
-	
-		//
+		mainFrame.setIconImage(new ImageIcon(ClassLoader.getSystemResource("17_-_Commodore.png")).getImage());
 
 		JLabel labelLogo = new JLabel("");
 		labelLogo.setHorizontalAlignment(SwingConstants.CENTER);
