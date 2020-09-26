@@ -24,6 +24,8 @@ public class MainWindow {
 	private StratagemSelectionWindow stratagemSelectionWindow = new StratagemSelectionWindow();
 	private static int stratagemMapSize = 11;
 	public static ArrayList<Stratagem> stratagemMap = new ArrayList<Stratagem>(stratagemMapSize);
+	
+	private JButton button1;
 
 	public static void main(String[] args) {
 
@@ -65,6 +67,7 @@ public class MainWindow {
 	public MainWindow() {
 		initializeStratagemMap();
 		initialize();
+		refreshButtons();
 	}
 
 	/**
@@ -112,7 +115,7 @@ public class MainWindow {
 		button6.setBounds(208, 152, 89, 74);
 		mainFrame.getContentPane().add(button6);
 
-		JButton button1 = new JButton("1");
+		button1 = new JButton("1");
 		button1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				actionPressedButton(1);
@@ -141,7 +144,7 @@ public class MainWindow {
 
 	protected void actionPressedButton(int pressedButton) {
 		// action when GUI button is pressed
-		stratagemSelectionWindow.selectNewStratagemForButton(pressedButton, stratagemMap, mainFrame);
+		stratagemSelectionWindow.selectNewStratagemForButton(pressedButton, stratagemMap, this);
 
 	}
 
@@ -151,4 +154,19 @@ public class MainWindow {
 			stratagemMap.add(null);
 		}
 	}
+	
+	public void refreshButtons() {
+		
+		if (stratagemMap.get(1) != null)
+		{
+			button1.setIcon(new ImageIcon(ClassLoader.getSystemResource(stratagemMap.get(1).getIconFileName())));
+		}
+		
+		mainFrame.getContentPane().repaint();
+	}
+
+	public JFrame getMainFrame() {
+		return mainFrame;
+	}
+	
 }

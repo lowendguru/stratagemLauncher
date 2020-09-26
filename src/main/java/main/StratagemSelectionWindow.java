@@ -22,7 +22,7 @@ import model.StratagemList;
 public class StratagemSelectionWindow extends JFrame {
 
 	private JPanel contentPane;
-	private JFrame mainWindow;
+	private MainWindow mainWindow;
 	private int pressedButton;
 	private ArrayList<Stratagem> stratagemMap;
 	StratagemList stratagemsList = new StratagemList().initialize("default");
@@ -83,17 +83,18 @@ public class StratagemSelectionWindow extends JFrame {
 		closeWindow();
 	}
 
-	public void selectNewStratagemForButton(int pressedButton, ArrayList<Stratagem> stratagemMap, JFrame mainWindow) {
+	public void selectNewStratagemForButton(int pressedButton, ArrayList<Stratagem> stratagemMap, MainWindow mainWindow) {
 		this.pressedButton = pressedButton;
 		this.stratagemMap = stratagemMap;
 		this.mainWindow = mainWindow;
-		mainWindow.setVisible(false);
+		mainWindow.getMainFrame().setVisible(false);
 		this.setVisible(true);
 	}
 
 	private void closeWindow() {
-		mainWindow.setVisible(true);
-		mainWindow.repaint();
+		mainWindow.refreshButtons();
+		mainWindow.getMainFrame().setVisible(true);
+		mainWindow.getMainFrame().repaint();
 		this.setVisible(false);
 	}
 }
