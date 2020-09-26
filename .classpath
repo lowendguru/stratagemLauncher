@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry including="**/*.java" kind="src" path="src/main/java"/>
-	<classpathentry kind="src" path="resources"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="var" path="M2_REPO/lc/kra/system/system-hook/3.2/system-hook-3.2.jar"/>
-	<classpathentry kind="output" path="target/classes"/>
+	<classpathentry including="**/*.java" kind="src"
+		path="src/main/java" />
+	<classpathentry kind="src" path="resources" />
+	<classpathentry kind="con"
+		path="org.eclipse.jdt.launching.JRE_CONTAINER" />
+	<classpathentry kind="var"
+		path="M2_REPO/lc/kra/system/system-hook/3.2/system-hook-3.2.jar" />
+	<classpathentry kind="output" path="target/classes" />
 </classpath>
