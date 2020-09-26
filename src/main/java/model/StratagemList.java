@@ -5,7 +5,7 @@ import java.util.ArrayList;
 @SuppressWarnings("serial")
 public class StratagemList extends ArrayList<Stratagem> {
 
-	public void initialize(String dataOrigin) {
+	public StratagemList initialize(String dataOrigin) {
 
 		if (dataOrigin.equals("default")) {
 			// TYPES: 1 support, 2 defensive, 3 offensive, 4 special
@@ -53,6 +53,7 @@ public class StratagemList extends ArrayList<Stratagem> {
 			
 			
 		}
+		return this;
 	}
 
 }

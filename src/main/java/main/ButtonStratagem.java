@@ -7,16 +7,17 @@ import javax.swing.SwingConstants;
 import model.Stratagem;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 
 @SuppressWarnings("serial")
-public class PanelStratagem extends JPanel {
+public class ButtonStratagem extends JButton {
 
 	/**
 	 * Create the panel.
 	 */
-	public PanelStratagem(Stratagem stratagem) {
+	public ButtonStratagem(Stratagem stratagem) {
 		setLayout(null);
 
 		JLabel labelIcon = new JLabel("");

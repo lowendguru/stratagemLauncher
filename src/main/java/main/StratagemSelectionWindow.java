@@ -2,8 +2,11 @@ package main;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -20,6 +23,9 @@ public class StratagemSelectionWindow extends JFrame {
 
 	private JPanel contentPane;
 	private JFrame mainWindow;
+	private int pressedButton;
+	private ArrayList<Stratagem> stratagemMap;
+	StratagemList stratagemsList = new StratagemList().initialize("default");
 
 	/**
 	 * Create the frame.
@@ -29,7 +35,7 @@ public class StratagemSelectionWindow extends JFrame {
 		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		this.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent evt) {
-				onExit();
+				closeWindow();
 			}
 		});
 
@@ -51,13 +57,18 @@ public class StratagemSelectionWindow extends JFrame {
 		scrollPane.add(containerPanel);
 		scrollPane.setViewportView(containerPanel);
 
-		StratagemList stratagemsList = new StratagemList();
-		stratagemsList.initialize("default");
-
-		for (Stratagem s : stratagemsList) {
+		for (int i = 0; i < stratagemsList.size(); i++) {
 			containerPanel.setPreferredSize(new Dimension(390, (55 * stratagemsList.size())));
-			PanelStratagem ps = new PanelStratagem(s);
-			containerPanel.add(ps);
+			ButtonStratagem buttonStratagem = new ButtonStratagem(stratagemsList.get(i));
+
+			final int ii = i;
+			buttonStratagem.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					actionPressedButtonStratagem(ii);
+				}
+			});
+
+			containerPanel.add(buttonStratagem);
 
 		}
 
@@ -65,14 +76,22 @@ public class StratagemSelectionWindow extends JFrame {
 		contentPane.repaint();
 	}
 
-	public void selectNewStratagemForButton(int pressedButton, Stratagem[] stratagemMap, JFrame mainWindow) {
+	public void actionPressedButtonStratagem(int stratagemIndex) {
+		stratagemMap.set(pressedButton, stratagemsList.get(stratagemIndex));
+		closeWindow();
+	}
+
+	public void selectNewStratagemForButton(int pressedButton, ArrayList<Stratagem> stratagemMap, JFrame mainWindow) {
+		this.pressedButton = pressedButton;
+		this.stratagemMap = stratagemMap;
 		this.mainWindow = mainWindow;
 		mainWindow.setVisible(false);
 		this.setVisible(true);
 	}
 
-	private void onExit() {
+	private void closeWindow() {
 		mainWindow.setVisible(true);
+		mainWindow.repaint();
 		this.setVisible(false);
 	}
 }

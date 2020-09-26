@@ -3,6 +3,7 @@ package listener;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.Map.Entry;
 
 import lc.kra.system.keyboard.GlobalKeyboardHook;
@@ -15,7 +16,7 @@ public class GlobalKeyboardListener {
 	private static int timeDelay = 50;
 	private static boolean testing = true;
 
-	public GlobalKeyboardListener(Stratagem[] stratagemMap) {
+	public GlobalKeyboardListener(ArrayList<Stratagem> stratagemMap) {
 		// might throw a UnsatisfiedLinkError if the native library fails to load or a
 		// RuntimeException if hooking fails
 		// use false here to switch to hook instead of raw input

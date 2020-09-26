@@ -14,6 +14,7 @@ import model.Stratagem;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
@@ -21,7 +22,7 @@ public class MainWindow {
 
 	private JFrame mainFrame;
 	private StratagemSelectionWindow stratagemSelectionWindow = new StratagemSelectionWindow();
-	private static Stratagem[] stratagemMap = new Stratagem[11];
+	public ArrayList<Stratagem> stratagemMap = new ArrayList<Stratagem>(11);
 
 	public static void main(String[] args) {
 
@@ -48,7 +49,8 @@ public class MainWindow {
 					MainWindow window = new MainWindow();
 					window.mainFrame.setVisible(true);
 
-					new GlobalKeyboardListener(stratagemMap);
+					//FIXME
+	//				new GlobalKeyboardListener(stratagemMap);
 
 				} catch (Exception e) {
 					e.printStackTrace();
