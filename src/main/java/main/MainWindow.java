@@ -79,11 +79,10 @@ public class MainWindow {
 		JLabel labelLogo = new JLabel("");
 		labelLogo.setHorizontalAlignment(SwingConstants.CENTER);
 		labelLogo.setBounds(10, 0, 287, 68);
-		
-		
+
 		labelLogo.setIcon(new ImageIcon(ClassLoader.getSystemResource("Logo-Helldivers-custom.png")));
-		
-	//	labelLogo.setVisible(true);
+
+		// labelLogo.setVisible(true);
 		mainFrame.getContentPane().add(labelLogo);
 
 		JButton button7 = new JButton("7");
@@ -139,7 +138,7 @@ public class MainWindow {
 
 	protected void actionPressedButton(int pressedButton) {
 		// action when GUI button is pressed
-		stratagemSelectionWindow.selectNewStratagemForButton(pressedButton, stratagemMap);
+		stratagemSelectionWindow.selectNewStratagemForButton(pressedButton, stratagemMap, mainFrame);
 
 	}
 }

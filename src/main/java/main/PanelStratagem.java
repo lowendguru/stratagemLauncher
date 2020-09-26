@@ -20,7 +20,7 @@ public class PanelStratagem extends JPanel {
 		setLayout(null);
 
 		JLabel labelIcon = new JLabel("");
-		labelIcon.setIcon(new ImageIcon(MainWindow.class.getResource("/resources/" + stratagem.getIconFileName())));
+		labelIcon.setIcon(new ImageIcon(ClassLoader.getSystemResource(stratagem.getIconFileName())));
 		labelIcon.setBounds(10, 0, 62, 54);
 		add(labelIcon);
 

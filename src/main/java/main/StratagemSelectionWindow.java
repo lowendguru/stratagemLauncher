@@ -2,6 +2,8 @@ package main;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -17,30 +19,23 @@ import model.StratagemList;
 public class StratagemSelectionWindow extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					StratagemSelectionWindow frame = new StratagemSelectionWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private JFrame mainWindow;
 
 	/**
 	 * Create the frame.
 	 */
 	public StratagemSelectionWindow() {
+
+		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		this.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent evt) {
+				onExit();
+			}
+		});
+
 		setResizable(false);
 		setTitle("Stratagem Selection");
-		setBounds(100, 100, 450, 500);
+		setBounds(100, 100, 400, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -52,15 +47,15 @@ public class StratagemSelectionWindow extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(5, 5, 439, 457);
+		scrollPane.setBounds(5, 5, 389, 457);
 		scrollPane.add(containerPanel);
 		scrollPane.setViewportView(containerPanel);
 
 		StratagemList stratagemsList = new StratagemList();
-		stratagemsList.initialize("hardcoded list");
+		stratagemsList.initialize("default");
 
 		for (Stratagem s : stratagemsList) {
-			containerPanel.setPreferredSize(new Dimension(400, (55 * stratagemsList.size())));
+			containerPanel.setPreferredSize(new Dimension(390, (55 * stratagemsList.size())));
 			PanelStratagem ps = new PanelStratagem(s);
 			containerPanel.add(ps);
 
@@ -70,8 +65,14 @@ public class StratagemSelectionWindow extends JFrame {
 		contentPane.repaint();
 	}
 
-	public void selectNewStratagemForButton(int pressedButton, Stratagem[] stratagemMap) {
+	public void selectNewStratagemForButton(int pressedButton, Stratagem[] stratagemMap, JFrame mainWindow) {
+		this.mainWindow = mainWindow;
+		mainWindow.setVisible(false);
 		this.setVisible(true);
 	}
 
+	private void onExit() {
+		mainWindow.setVisible(true);
+		this.setVisible(false);
+	}
 }
