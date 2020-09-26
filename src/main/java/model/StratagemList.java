@@ -7,11 +7,12 @@ public class StratagemList extends ArrayList<Stratagem> {
 
 	public void initialize(String dataOrigin) {
 
-		if (dataOrigin.equals("hardcoded list")) {
-			// 1 support, 2 defensive, 3 offensive, 4 special
+		if (dataOrigin.equals("default")) {
+			// TYPES: 1 support, 2 defensive, 3 offensive, 4 special
 
 			add(new Stratagem("Resupply", "sswd", 1, "48px-Strat_Resupply_mk1.png"));
 			add(new Stratagem("MG-94 Machine Gun", "saswd", 1, "48px-Strat_MG-94_Machine_Gun_mk1.png"));
+			add(new Stratagem("MGX-42 Machine Gun", "saswwa", 1, "48px-Strat_MGX-42_Machine_Gun_Mk1.png"));
 			add(new Stratagem("LAS-98 Laser Cannon", "saswa", 1, "48px-Strat_LAS-98_Laser_Cannon_mk1.png"));
 			add(new Stratagem("Obliterator Grenade Launcher", "sawas", 1, "48px-Strat_Obliterator_Grenade_Launcher_mk1.png"));
 			add(new Stratagem("FLAM-40 Incinerator", "sasda", 1, "48px-Strat_FLAM-40_Incinerator_mk1.png"));
