@@ -22,7 +22,8 @@ public class MainWindow {
 
 	private JFrame mainFrame;
 	private StratagemSelectionWindow stratagemSelectionWindow = new StratagemSelectionWindow();
-	public ArrayList<Stratagem> stratagemMap = new ArrayList<Stratagem>(11);
+	private static int stratagemMapSize = 11;
+	public static ArrayList<Stratagem> stratagemMap = new ArrayList<Stratagem>(stratagemMapSize);
 
 	public static void main(String[] args) {
 
@@ -49,8 +50,7 @@ public class MainWindow {
 					MainWindow window = new MainWindow();
 					window.mainFrame.setVisible(true);
 
-					//FIXME
-	//				new GlobalKeyboardListener(stratagemMap);
+					new GlobalKeyboardListener(stratagemMap);
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -63,6 +63,7 @@ public class MainWindow {
 	 * Create the application.
 	 */
 	public MainWindow() {
+		initializeStratagemMap();
 		initialize();
 	}
 
@@ -142,5 +143,12 @@ public class MainWindow {
 		// action when GUI button is pressed
 		stratagemSelectionWindow.selectNewStratagemForButton(pressedButton, stratagemMap, mainFrame);
 
+	}
+
+	private void initializeStratagemMap() {
+		// TODO add possibility to get user preferenc from .ini
+		for (int i = 0; i < stratagemMapSize; i++) {
+			stratagemMap.add(null);
+		}
 	}
 }

@@ -78,6 +78,8 @@ public class StratagemSelectionWindow extends JFrame {
 
 	public void actionPressedButtonStratagem(int stratagemIndex) {
 		stratagemMap.set(pressedButton, stratagemsList.get(stratagemIndex));
+		System.out.println("Selected stratagem: " + stratagemsList.get(stratagemIndex).getName());
+		System.out.println("for button: " + pressedButton);
 		closeWindow();
 	}
 
