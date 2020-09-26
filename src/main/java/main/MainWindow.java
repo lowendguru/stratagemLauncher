@@ -95,11 +95,6 @@ public class MainWindow {
 		buttonsList.add(button0);
 
 		button1 = new JButton("1");
-		button1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				actionPressedButton(1);
-			}
-		});
 		button1.setBounds(10, 237, 89, 74);
 		mainFrame.getContentPane().add(button1);
 		buttonsList.add(button1);
@@ -148,6 +143,16 @@ public class MainWindow {
 		buttonDot.setBounds(208, 322, 89, 74);
 		mainFrame.getContentPane().add(buttonDot);
 		buttonsList.add(buttonDot);
+
+		// action listeners for buttons
+		for (int i = 0; i < buttonsList.size(); i++) {
+			final int ii = i;
+			buttonsList.get(i).addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					actionPressedButton(ii);
+				}
+			});
+		}
 
 	}
 
