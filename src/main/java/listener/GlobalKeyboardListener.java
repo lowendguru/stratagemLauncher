@@ -13,7 +13,7 @@ import model.Stratagem;
 
 public class GlobalKeyboardListener {
 
-	private static int timeDelay = 50;
+	private static int timeDelay = 30;
 	private static boolean testing;
 
 	public ArrayList<Stratagem> stratagemMap;
@@ -132,6 +132,7 @@ public class GlobalKeyboardListener {
 	protected static void pressSequence(String s) {
 		System.out.println("Press sequence: " + s);
 
+		if(s != null && !s.equals(""))
 		try {
 
 			Robot r = new Robot();
