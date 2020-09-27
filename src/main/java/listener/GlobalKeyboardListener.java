@@ -13,7 +13,7 @@ import model.Stratagem;
 
 public class GlobalKeyboardListener {
 
-	private static int timeDelay = 30;
+	private static int timeDelay = 20;
 	private static boolean testing;
 
 	public ArrayList<Stratagem> stratagemMap;
@@ -43,79 +43,79 @@ public class GlobalKeyboardListener {
 				switch (eventValue) {
 				case 96:
 					// numpad 0
-					pressSequence(stratagemMap.get(0).getSequence());
+					pressSequence(sequenceFromStratagemMap(0));
 					break;
 				case 48:
 					// alphabetic 0
-					pressSequence(stratagemMap.get(0).getSequence());
+					pressSequence(sequenceFromStratagemMap(0));
 					break;
 				case 97:
 					// numpad 1
-					pressSequence(stratagemMap.get(1).getSequence());
+					pressSequence(sequenceFromStratagemMap(1));
 					break;
 				case 98:
 					// numpad 2
-					pressSequence(stratagemMap.get(2).getSequence());
+					pressSequence(sequenceFromStratagemMap(2));
 					break;
 				case 99:
 					// numpad 3
-					pressSequence(stratagemMap.get(3).getSequence());
+					pressSequence(sequenceFromStratagemMap(3));
 					break;
 				case 100:
 					// numpad 4
-					pressSequence(stratagemMap.get(4).getSequence());
+					pressSequence(sequenceFromStratagemMap(4));
 					break;
 				case 52:
 					// alphabetic 4
-					pressSequence(stratagemMap.get(4).getSequence());
+					pressSequence(sequenceFromStratagemMap(4));
 					break;
 				case 101:
 					// numpad 5
-					pressSequence(stratagemMap.get(5).getSequence());
+					pressSequence(sequenceFromStratagemMap(5));
 					break;
 				case 53:
 					// alphabetic 5
-					pressSequence(stratagemMap.get(5).getSequence());
+					pressSequence(sequenceFromStratagemMap(5));
 					break;
 				case 102:
 					// numpad 6
-					pressSequence(stratagemMap.get(6).getSequence());
+					pressSequence(sequenceFromStratagemMap(6));
 					break;
 				case 54:
 					// alphabetic 6
-					pressSequence(stratagemMap.get(6).getSequence());
+					pressSequence(sequenceFromStratagemMap(6));
 					break;
 				case 103:
 					// numpad 7
-					pressSequence(stratagemMap.get(7).getSequence());
+					pressSequence(sequenceFromStratagemMap(7));
 					break;
 				case 55:
 					// alphabetic 7
-					pressSequence(stratagemMap.get(7).getSequence());
+					pressSequence(sequenceFromStratagemMap(7));
 					break;
 				case 104:
 					// numpad 8
-					pressSequence(stratagemMap.get(8).getSequence());
+					pressSequence(sequenceFromStratagemMap(8));
 					break;
 				case 56:
 					// alphabetic 8
-					pressSequence(stratagemMap.get(8).getSequence());
+					pressSequence(sequenceFromStratagemMap(8));
 					break;
 				case 105:
 					// numpad 9
-					pressSequence(stratagemMap.get(9).getSequence());
+					pressSequence(sequenceFromStratagemMap(9));
 					break;
 				case 57:
 					// alphabetic 9
-					pressSequence(stratagemMap.get(9).getSequence());
+					pressSequence(sequenceFromStratagemMap(9));
 					break;
 				case 110:
 					// numpad . (dot)
-					pressSequence(stratagemMap.get(10).getSequence());
+					pressSequence(sequenceFromStratagemMap(10));
 					break;
 				case 190:
 					// alphabetic . (dot)
-					pressSequence(stratagemMap.get(10).getSequence());
+					pressSequence(sequenceFromStratagemMap(10));
 					break;
 				}
 
@@ -129,63 +129,72 @@ public class GlobalKeyboardListener {
 
 	}
 
+	private String sequenceFromStratagemMap(int stratagemMapIndex) {
+		String sequence = "";
+
+		if (stratagemMap.get(stratagemMapIndex) != null)
+			return stratagemMap.get(stratagemMapIndex).getSequence();
+
+		return sequence;
+	}
+
 	protected static void pressSequence(String s) {
 		System.out.println("Press sequence: " + s);
 
-		if(s != null && !s.equals(""))
-		try {
+		if (s != null && !s.equals(""))
+			try {
 
-			Robot r = new Robot();
+				Robot r = new Robot();
 
-			// Press CTRL key
-			if (!testing)
-				r.keyPress(KeyEvent.VK_CONTROL); 
-			Thread.sleep(timeDelay);
-
-			for (int i = 0; i < s.length(); i++) {
-
-				int ch = s.charAt(i);
-				System.out.println("int char= " + ch);
-
-				switch (ch) {
-				case 119:
-					// w
-					r.keyPress(KeyEvent.VK_W); // w
-					Thread.sleep(timeDelay);
-					r.keyRelease(KeyEvent.VK_W);
-					break;
-				case 97:
-					// w
-					r.keyPress(KeyEvent.VK_A); // w
-					Thread.sleep(timeDelay);
-					r.keyRelease(KeyEvent.VK_A);
-					break;
-				case 115:
-					// w
-					r.keyPress(KeyEvent.VK_S); // w
-					Thread.sleep(timeDelay);
-					r.keyRelease(KeyEvent.VK_S);
-					break;
-				case 100:
-					// w
-					r.keyPress(KeyEvent.VK_D); // w
-					Thread.sleep(timeDelay);
-					r.keyRelease(KeyEvent.VK_D);
-					break;
-				}
+				// Press CTRL key
+				if (!testing)
+					r.keyPress(KeyEvent.VK_CONTROL);
 				Thread.sleep(timeDelay);
 
-			}
+				for (int i = 0; i < s.length(); i++) {
 
-			if (!testing)
-				r.keyRelease(KeyEvent.VK_CONTROL);
-			r = null;
-		} catch (AWTException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+					int ch = s.charAt(i);
+					System.out.println("int char= " + ch);
+
+					switch (ch) {
+					case 119:
+						// w
+						r.keyPress(KeyEvent.VK_W); // w
+						Thread.sleep(timeDelay);
+						r.keyRelease(KeyEvent.VK_W);
+						break;
+					case 97:
+						// w
+						r.keyPress(KeyEvent.VK_A); // w
+						Thread.sleep(timeDelay);
+						r.keyRelease(KeyEvent.VK_A);
+						break;
+					case 115:
+						// w
+						r.keyPress(KeyEvent.VK_S); // w
+						Thread.sleep(timeDelay);
+						r.keyRelease(KeyEvent.VK_S);
+						break;
+					case 100:
+						// w
+						r.keyPress(KeyEvent.VK_D); // w
+						Thread.sleep(timeDelay);
+						r.keyRelease(KeyEvent.VK_D);
+						break;
+					}
+					Thread.sleep(timeDelay);
+
+				}
+
+				if (!testing)
+					r.keyRelease(KeyEvent.VK_CONTROL);
+				r = null;
+			} catch (AWTException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 }
