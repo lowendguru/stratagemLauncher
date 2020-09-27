@@ -6,6 +6,7 @@ public class Stratagem {
 	private String sequence;
 	private int type;
 	private String iconFileName;
+	private boolean isDlc;
 
 	public Stratagem() {
 
@@ -17,6 +18,11 @@ public class Stratagem {
 		this.sequence = sequence;
 		this.type = type;
 		this.iconFileName = iconFileName;
+	}
+
+	public Stratagem(String name, String sequence, int type, String iconFileName, boolean isDlc) {
+		this(name, sequence, type, iconFileName);
+		this.isDlc = isDlc;
 	}
 
 	public String getName() {
@@ -49,6 +55,14 @@ public class Stratagem {
 
 	public void setIconFileName(String iconFileName) {
 		this.iconFileName = iconFileName;
+	}
+
+	public boolean isDlc() {
+		return isDlc;
+	}
+
+	public void setDlc(boolean isDlc) {
+		this.isDlc = isDlc;
 	}
 
 }
