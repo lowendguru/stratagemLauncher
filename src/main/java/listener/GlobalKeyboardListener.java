@@ -9,17 +9,17 @@ import java.util.Map.Entry;
 import lc.kra.system.keyboard.GlobalKeyboardHook;
 import lc.kra.system.keyboard.event.GlobalKeyAdapter;
 import lc.kra.system.keyboard.event.GlobalKeyEvent;
+import main.MainWindow;
 import model.Stratagem;
 
 public class GlobalKeyboardListener {
 
-	private static int timeDelay = 20;
-	private static boolean testing;
+	private static int timeDelay = 25;
 
 	public ArrayList<Stratagem> stratagemMap;
 
-	public GlobalKeyboardListener(final ArrayList<Stratagem> stratagemMap, boolean testing) {
-		GlobalKeyboardListener.testing = testing;
+	public GlobalKeyboardListener(final ArrayList<Stratagem> stratagemMap) {
+
 		this.stratagemMap = stratagemMap;
 
 		// might throw a UnsatisfiedLinkError if the native library fails to load or a
@@ -147,7 +147,7 @@ public class GlobalKeyboardListener {
 				Robot r = new Robot();
 
 				// Press CTRL key
-				if (!testing)
+				if (!MainWindow.TESTING)
 					r.keyPress(KeyEvent.VK_CONTROL);
 				Thread.sleep(timeDelay);
 
@@ -186,7 +186,7 @@ public class GlobalKeyboardListener {
 
 				}
 
-				if (!testing)
+				if (!MainWindow.TESTING)
 					r.keyRelease(KeyEvent.VK_CONTROL);
 				r = null;
 			} catch (AWTException e) {

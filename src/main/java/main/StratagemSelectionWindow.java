@@ -58,7 +58,7 @@ public class StratagemSelectionWindow extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(5, 5, 379, 457);
+		scrollPane.setBounds(5, 5, 389, 457);
 		scrollPane.add(containerPanel);
 		scrollPane.setViewportView(containerPanel);
 

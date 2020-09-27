@@ -20,7 +20,7 @@ import java.awt.Color;
 
 public class MainWindow {
 
-	private static boolean testing = false;
+	public static final boolean TESTING = false;
 	private JFrame mainFrame;
 	private StratagemSelectionWindow stratagemSelectionWindow = new StratagemSelectionWindow();
 	private static int stratagemMapSize = 11;
@@ -54,7 +54,7 @@ public class MainWindow {
 					MainWindow window = new MainWindow();
 					window.mainFrame.setVisible(true);
 
-					new GlobalKeyboardListener(stratagemMap, testing);
+					new GlobalKeyboardListener(stratagemMap);
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -62,7 +62,7 @@ public class MainWindow {
 			}
 		});
 
-		System.out.println("Testing mode: " + testing);
+		System.out.println("Testing mode: " + TESTING);
 	}
 
 	/**
