@@ -14,8 +14,6 @@ import model.Stratagem;
 
 public class GlobalKeyboardListener {
 
-	private static int timeDelay = 25;
-
 	public ArrayList<Stratagem> stratagemMap;
 
 	public GlobalKeyboardListener(final ArrayList<Stratagem> stratagemMap) {
@@ -149,7 +147,7 @@ public class GlobalKeyboardListener {
 				// Press CTRL key
 				if (!MainWindow.TESTING)
 					r.keyPress(KeyEvent.VK_CONTROL);
-				Thread.sleep(timeDelay);
+				Thread.sleep(MainWindow.KEY_DELAY);
 
 				for (int i = 0; i < s.length(); i++) {
 
@@ -160,29 +158,29 @@ public class GlobalKeyboardListener {
 					case 119:
 						// w
 						r.keyPress(KeyEvent.VK_W); // w
-						Thread.sleep(timeDelay);
+						Thread.sleep(MainWindow.KEY_DELAY);
 						r.keyRelease(KeyEvent.VK_W);
 						break;
 					case 97:
 						// w
 						r.keyPress(KeyEvent.VK_A); // w
-						Thread.sleep(timeDelay);
+						Thread.sleep(MainWindow.KEY_DELAY);
 						r.keyRelease(KeyEvent.VK_A);
 						break;
 					case 115:
 						// w
 						r.keyPress(KeyEvent.VK_S); // w
-						Thread.sleep(timeDelay);
+						Thread.sleep(MainWindow.KEY_DELAY);
 						r.keyRelease(KeyEvent.VK_S);
 						break;
 					case 100:
 						// w
 						r.keyPress(KeyEvent.VK_D); // w
-						Thread.sleep(timeDelay);
+						Thread.sleep(MainWindow.KEY_DELAY);
 						r.keyRelease(KeyEvent.VK_D);
 						break;
 					}
-					Thread.sleep(timeDelay);
+					Thread.sleep(MainWindow.KEY_DELAY);
 
 				}
 

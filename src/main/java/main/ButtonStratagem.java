@@ -1,15 +1,13 @@
 package main;
 
-import javax.swing.JPanel;
-import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
-
-import model.Stratagem;
+import java.awt.Font;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import java.awt.Font;
+import javax.swing.JSeparator;
+
+import model.Stratagem;
 
 @SuppressWarnings("serial")
 public class ButtonStratagem extends JButton {

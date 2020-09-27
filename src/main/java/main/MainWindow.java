@@ -21,6 +21,7 @@ import java.awt.Color;
 public class MainWindow {
 
 	public static final boolean TESTING = false;
+	public static final int KEY_DELAY = 25;
 	private JFrame mainFrame;
 	private StratagemSelectionWindow stratagemSelectionWindow = new StratagemSelectionWindow();
 	private static int stratagemMapSize = 11;
