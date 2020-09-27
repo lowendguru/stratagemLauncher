@@ -24,8 +24,8 @@ public class MainWindow {
 	public static final int KEY_DELAY = 25;
 	private JFrame mainFrame;
 	private StratagemSelectionWindow stratagemSelectionWindow = new StratagemSelectionWindow();
-	private static int stratagemMapSize = 11;
-	public static ArrayList<Stratagem> stratagemMap = new ArrayList<Stratagem>(stratagemMapSize);
+	private static final int STRATAGEM_MAP_SIZE = 11;
+	public static ArrayList<Stratagem> stratagemMap = new ArrayList<Stratagem>(STRATAGEM_MAP_SIZE);
 	private ArrayList<JButton> buttonsList = new ArrayList<JButton>();
 
 	private JButton button1;
@@ -169,7 +169,7 @@ public class MainWindow {
 
 	private void initializeStratagemMap() {
 		// TODO add possibility to get user preferences from .ini
-		for (int i = 0; i < stratagemMapSize; i++) {
+		for (int i = 0; i < STRATAGEM_MAP_SIZE; i++) {
 			stratagemMap.add(null);
 		}
 	}
