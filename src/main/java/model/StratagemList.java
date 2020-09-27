@@ -10,6 +10,7 @@ public class StratagemList extends ArrayList<Stratagem> {
 		if (dataOrigin.equals("default")) {
 			// TYPES: 1 support, 2 defensive, 3 offensive, 4 special
 
+			// SUPPORT
 			add(new Stratagem("Resupply", "sswd", 1, "48px-Strat_Resupply_mk1.png"));
 			add(new Stratagem("MG-94 Machine Gun", "saswd", 1, "48px-Strat_MG-94_Machine_Gun_mk1.png"));
 			add(new Stratagem("MGX-42 Machine Gun", "saswwa", 1, "48px-Strat_MGX-42_Machine_Gun_Mk1.png"));
@@ -26,6 +27,7 @@ public class StratagemList extends ArrayList<Stratagem> {
 			add(new Stratagem("M5 APC", "sdsaad", 1, "48px-Strat_M5_APC_mk1.png"));
 			add(new Stratagem("M5-32 HAV", "sdsaws", 1, "48px-Strat_M5-32_HAV_mk1.png"));
 			
+			// DEFENSIVE
 			add(new Stratagem("Distractor Beacon", "asd", 2, "48px-Strat_Distractor_Beacon_mk1.png"));
 			add(new Stratagem("A/MG-II Minigun Turret", "aswda", 2, "48px-Strat_A_MG-II_Minigun_Turret_mk1.png"));
 			add(new Stratagem("A/RX-34 Railcannon Turret", "aswad", 2, "48px-Strat_A_RX-34_Railcannon_Turret_mk1.png"));
@@ -35,6 +37,7 @@ public class StratagemList extends ArrayList<Stratagem> {
 			add(new Stratagem("Thunderer Smoke Round", "dswws", 2, "48px-Strat_Thunderer_Smoke_Round_mk1.png"));
 			add(new Stratagem("Airdropped Stun Mines", "adws", 2, "48px-Strat_Airdropped_Stun_Mines_mk1.png"));
 			
+			// OFFENSIVE
 			add(new Stratagem("Static Field Conductors", "dwas", 3, "48px-Strat_Static_Field_Conductors_mk1.png"));
 			add(new Stratagem("Heavy Airstrike", "dwsda", 3, "48px-Strat_Airstrike_mk1.png"));
 			add(new Stratagem("Vindicator Dive Bomb", "ddd", 3, "48px-Strat_Vindicator_Dive_Bomb_mk1.png"));
@@ -46,6 +49,7 @@ public class StratagemList extends ArrayList<Stratagem> {
 			add(new Stratagem("Shredder Missile Strike", "dadassd", 3, "48px-Strat_Shredder_Missile_Strike_mk1.png"));
 			add(new Stratagem("Railcannon Strike", "dswsa", 3, "48px-Strat_Railcannon_Strike_mk1.png"));
 			
+			// SPECIAL
 			add(new Stratagem("Reinforce", "wsdaw", 4, "48px-Strat_Reinforce_mk1.png"));
 			add(new Stratagem("NUX-223 Hellbomb", "wadsws", 4, "48px-Strat_NUX-223_Hellbomb_mk1.png"));
 			add(new Stratagem("ME-1 'Sniffer' Metal Detector", "ssdw", 4, "48px-Strat_ME-1_Sniffer_Metal_Detector_mk1.png"));
