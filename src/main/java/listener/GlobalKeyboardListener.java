@@ -188,10 +188,8 @@ public class GlobalKeyboardListener {
 					r.keyRelease(KeyEvent.VK_CONTROL);
 				r = null;
 			} catch (AWTException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	}
