@@ -20,7 +20,7 @@ import java.awt.Color;
 
 public class MainWindow {
 
-	private static boolean testing = true;
+	private static boolean testing = false;
 	private JFrame mainFrame;
 	private StratagemSelectionWindow stratagemSelectionWindow = new StratagemSelectionWindow();
 	private static int stratagemMapSize = 11;
