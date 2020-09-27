@@ -9,6 +9,7 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -17,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 
 import model.Stratagem;
 import model.StratagemList;
+import java.awt.Color;
 
 @SuppressWarnings("serial")
 public class StratagemSelectionWindow extends JFrame {
@@ -47,18 +49,21 @@ public class StratagemSelectionWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
+		setIconImage(new ImageIcon(ClassLoader.getSystemResource("17_-_Commodore.png")).getImage());
+		getContentPane().setBackground(Color.DARK_GRAY);
+
 		JPanel containerPanel = new JPanel();
 		containerPanel.setLayout(new BoxLayout(containerPanel, BoxLayout.Y_AXIS));
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(5, 5, 389, 457);
+		scrollPane.setBounds(5, 5, 379, 457);
 		scrollPane.add(containerPanel);
 		scrollPane.setViewportView(containerPanel);
 
 		for (int i = 0; i < stratagemsList.size(); i++) {
-			containerPanel.setPreferredSize(new Dimension(390, (55 * stratagemsList.size())));
+			containerPanel.setPreferredSize(new Dimension(380, (55 * stratagemsList.size())));
 			ButtonStratagem buttonStratagem = new ButtonStratagem(stratagemsList.get(i));
 
 			final int ii = i;
