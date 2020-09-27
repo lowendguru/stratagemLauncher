@@ -28,8 +28,6 @@ public class MainWindow {
 	public static ArrayList<Stratagem> stratagemMap = new ArrayList<Stratagem>(STRATAGEM_MAP_SIZE);
 	private ArrayList<JButton> buttonsList = new ArrayList<JButton>();
 
-	private JButton button1;
-
 	public static void main(String[] args) {
 
 		// Set cross-platform Java L&F (also called "Metal")
@@ -99,6 +97,7 @@ public class MainWindow {
 		mainFrame.getContentPane().add(button0);
 		buttonsList.add(button0);
 
+		JButton button1 = new JButton("1");
 		button1 = new JButton("1");
 		button1.setBounds(10, 237, 89, 74);
 		mainFrame.getContentPane().add(button1);
