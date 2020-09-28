@@ -98,6 +98,7 @@ public class StratagemSelectionWindow extends JFrame {
 
 	private void closeWindow() {
 		mainWindow.refreshButtons();
+		mainWindow.writeIniFile();
 		mainWindow.getMainFrame().setVisible(true);
 		mainWindow.getMainFrame().repaint();
 		this.setVisible(false);

@@ -1,6 +1,9 @@
 package model;
 
-public class Stratagem {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class Stratagem implements Serializable {
 
 	private String name;
 	private String sequence;
