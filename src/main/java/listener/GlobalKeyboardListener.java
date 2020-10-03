@@ -156,26 +156,22 @@ public class GlobalKeyboardListener {
 
 					switch (ch) {
 					case 119:
-						// w
-						r.keyPress(KeyEvent.VK_W); // w
+						r.keyPress(KeyEvent.VK_W);
 						Thread.sleep(MainWindow.KEY_DELAY);
 						r.keyRelease(KeyEvent.VK_W);
 						break;
 					case 97:
-						// w
-						r.keyPress(KeyEvent.VK_A); // w
+						r.keyPress(KeyEvent.VK_A);
 						Thread.sleep(MainWindow.KEY_DELAY);
 						r.keyRelease(KeyEvent.VK_A);
 						break;
 					case 115:
-						// w
-						r.keyPress(KeyEvent.VK_S); // w
+						r.keyPress(KeyEvent.VK_S);
 						Thread.sleep(MainWindow.KEY_DELAY);
 						r.keyRelease(KeyEvent.VK_S);
 						break;
 					case 100:
-						// w
-						r.keyPress(KeyEvent.VK_D); // w
+						r.keyPress(KeyEvent.VK_D);
 						Thread.sleep(MainWindow.KEY_DELAY);
 						r.keyRelease(KeyEvent.VK_D);
 						break;
