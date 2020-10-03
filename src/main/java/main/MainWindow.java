@@ -66,14 +66,14 @@ public class MainWindow {
 	 */
 	public MainWindow() {
 		initializeStratagemMap();
-		initialize();
+		initializeMainWindow();
 		refreshButtons();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initializeMainWindow() {
 		mainFrame = new JFrame();
 		mainFrame.getContentPane().setBackground(Color.DARK_GRAY);
 		mainFrame.setResizable(false);
