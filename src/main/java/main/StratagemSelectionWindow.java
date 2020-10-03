@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 
 import model.Stratagem;
 import model.StratagemList;
+import utils.FileHelper;
 
 @SuppressWarnings("serial")
 public class StratagemSelectionWindow extends JFrame {
@@ -98,7 +99,7 @@ public class StratagemSelectionWindow extends JFrame {
 
 	private void closeWindow() {
 		mainWindow.refreshButtons();
-		mainWindow.writeIniFile();
+		FileHelper.writeIniFile(MainWindow.FILE_NAME, MainWindow.stratagemMap);
 		mainWindow.getMainFrame().setVisible(true);
 		mainWindow.getMainFrame().repaint();
 		this.setVisible(false);

@@ -4,13 +4,6 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -23,6 +16,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import listener.GlobalKeyboardListener;
 import model.StratagemMap;
+import utils.FileHelper;
 
 public class MainWindow {
 
@@ -33,7 +27,7 @@ public class MainWindow {
 	private static final int STRATAGEM_MAP_SIZE = 11;
 	public static StratagemMap stratagemMap;
 	private ArrayList<JButton> buttonsList = new ArrayList<JButton>();
-	private String fileName = "stratagemLauncher.ini";
+	public static String FILE_NAME = "stratagemLauncher.ini";
 
 	public static void main(String[] args) {
 
@@ -172,10 +166,10 @@ public class MainWindow {
 	private void initializeStratagemMap() {
 
 		// if there is .ini file, load from file
-		readIniFile();
+		stratagemMap = FileHelper.readIniFile(FILE_NAME);
 
 		if (stratagemMap == null) {
-			// if there is no .ini file, initialize
+			System.out.println("There is no .ini file");
 			MainWindow.stratagemMap = new StratagemMap(STRATAGEM_MAP_SIZE);
 			for (int i = 0; i < STRATAGEM_MAP_SIZE; i++) {
 				stratagemMap.add(null);
@@ -198,56 +192,6 @@ public class MainWindow {
 
 	public JFrame getMainFrame() {
 		return mainFrame;
-	}
-
-	private void readIniFile() {
-
-		try {
-			FileInputStream fileInputStream = new FileInputStream(new File(fileName));
-			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-
-			// Read objects
-			stratagemMap = (StratagemMap) objectInputStream.readObject();
-
-			objectInputStream.close();
-			fileInputStream.close();
-
-			System.out.println("Read from .ini file OK");
-
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found");
-		} catch (IOException e) {
-			System.out.println("Error initializing stream");
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			System.out.println("Class not found");
-			e.printStackTrace();
-		}
-
-	}
-
-	public void writeIniFile() {
-
-		try {
-			FileOutputStream fileOutputStream = new FileOutputStream(new File(fileName));
-			ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-
-			// Write objects to file
-			objectOutputStream.writeObject(stratagemMap);
-
-			objectOutputStream.close();
-			fileOutputStream.close();
-
-			System.out.println("Saved to .ini file");
-
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("Error initializing stream");
-			e.printStackTrace();
-		}
-
 	}
 
 }
