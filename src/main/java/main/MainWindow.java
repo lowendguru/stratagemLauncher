@@ -89,64 +89,44 @@ public class MainWindow {
 		labelLogo.setIcon(new ImageIcon(ClassLoader.getSystemResource("Logo-Helldivers-custom.png")));
 		mainFrame.getContentPane().add(labelLogo);
 
-		JButton button0 = new JButton("0");
-		button0.setBounds(10, 322, 188, 74);
-		mainFrame.getContentPane().add(button0);
-		buttonsList.add(button0);
+		buttonsList.add(new JButton("0"));
+		buttonsList.get(0).setBounds(10, 322, 188, 74);
 
-		JButton button1 = new JButton("1");
-		button1 = new JButton("1");
-		button1.setBounds(10, 237, 89, 74);
-		mainFrame.getContentPane().add(button1);
-		buttonsList.add(button1);
+		buttonsList.add(new JButton("1"));
+		buttonsList.get(1).setBounds(10, 237, 89, 74);
 
-		JButton button2 = new JButton("2");
-		button2.setBounds(109, 237, 89, 74);
-		mainFrame.getContentPane().add(button2);
-		buttonsList.add(button2);
+		buttonsList.add(new JButton("2"));
+		buttonsList.get(2).setBounds(109, 237, 89, 74);
 
-		JButton button3 = new JButton("3");
-		button3.setBounds(208, 237, 89, 74);
-		mainFrame.getContentPane().add(button3);
-		buttonsList.add(button3);
+		buttonsList.add(new JButton("3"));
+		buttonsList.get(3).setBounds(208, 237, 89, 74);
 
-		JButton button4 = new JButton("4");
-		button4.setBounds(10, 152, 89, 74);
-		mainFrame.getContentPane().add(button4);
-		buttonsList.add(button4);
+		buttonsList.add(new JButton("4"));
+		buttonsList.get(4).setBounds(10, 152, 89, 74);
 
-		JButton button5 = new JButton("5");
-		button5.setBounds(109, 152, 89, 74);
-		mainFrame.getContentPane().add(button5);
-		buttonsList.add(button5);
+		buttonsList.add(new JButton("5"));
+		buttonsList.get(5).setBounds(109, 152, 89, 74);
 
-		JButton button6 = new JButton("6");
-		button6.setBounds(208, 152, 89, 74);
-		mainFrame.getContentPane().add(button6);
-		buttonsList.add(button6);
+		buttonsList.add(new JButton("6"));
+		buttonsList.get(6).setBounds(208, 152, 89, 74);
 
-		JButton button7 = new JButton("7");
-		button7.setBounds(10, 67, 89, 74);
-		mainFrame.getContentPane().add(button7);
-		buttonsList.add(button7);
+		buttonsList.add(new JButton("7"));
+		buttonsList.get(7).setBounds(10, 67, 89, 74);
 
-		JButton button8 = new JButton("8");
-		button8.setBounds(109, 67, 89, 74);
-		mainFrame.getContentPane().add(button8);
-		buttonsList.add(button8);
+		buttonsList.add(new JButton("8"));
+		buttonsList.get(8).setBounds(109, 67, 89, 74);
 
-		JButton button9 = new JButton("9");
-		button9.setBounds(208, 67, 89, 74);
-		mainFrame.getContentPane().add(button9);
-		buttonsList.add(button9);
+		buttonsList.add(new JButton("9"));
+		buttonsList.get(9).setBounds(208, 67, 89, 74);
 
-		JButton buttonDot = new JButton(".");
-		buttonDot.setBounds(208, 322, 89, 74);
-		mainFrame.getContentPane().add(buttonDot);
-		buttonsList.add(buttonDot);
+		buttonsList.add(new JButton("."));
+		buttonsList.get(10).setBounds(208, 322, 89, 74);
 
-		// action listeners for buttons
 		for (int i = 0; i < buttonsList.size(); i++) {
+
+			mainFrame.getContentPane().add(buttonsList.get(i));
+
+			// action listeners for buttons
 			final int ii = i;
 			buttonsList.get(i).addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
