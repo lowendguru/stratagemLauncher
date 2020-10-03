@@ -115,6 +115,10 @@ public class GlobalKeyboardListener {
 					// alphabetic . (dot)
 					pressSequence(sequenceFromStratagemMap(10));
 					break;
+				case 109:
+					// numpad minus - (reinforce while mind controlled)
+					pressSequence("swads");
+					break;
 				}
 
 			}
