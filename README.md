@@ -4,6 +4,8 @@ This small program automates the key sequences required to launch stratagems in 
 
 This is a Windows PC program intended to work in the PC version of the game.
 
+See a demo video here: https://www.youtube.com/watch?v=y7HJCakwdbc
+
 ## How it works
 
 By default, the in-game stratagems are activated by pressing and holding the Ctrl key plus a sequence of directional movement keys (WASD) and finally releasing the Ctrl key. 
