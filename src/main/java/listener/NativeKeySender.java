@@ -13,7 +13,7 @@ public class NativeKeySender {
             User32.INSTANCE.GetWindowText(hWnd, name, name.length);
 
             // Find window with title starting with downcase "keyb" string
-            if (Native.toString(name).toLowerCase().startsWith("new")) {
+            if (Native.toString(name).toLowerCase().startsWith("*new")) {
                 // Bring the window to the front
                 User32.INSTANCE.SetForegroundWindow(hWnd);
 
@@ -42,16 +42,16 @@ public class NativeKeySender {
                         System.out.println("int char= " + ch);
                         switch (ch) {
                             case 119:
-                                pressKey(input, 'W');
+                                pressKey(input, Win32VK.VK_W.code);
                                 break;
                             case 97:
                                 pressKey(input, Win32VK.VK_A.code);
                                 break;
                             case 115:
-                                pressKey(input, 'S');
+                                pressKey(input, Win32VK.VK_S.code);
                                 break;
                             case 100:
-                                pressKey(input, 'D');
+                                pressKey(input, Win32VK.VK_D.code);
                                 break;
                         }
                         Thread.sleep(MainWindow.KEY_DELAY);
