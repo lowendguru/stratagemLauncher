@@ -13,7 +13,7 @@ public class NativeKeySender {
             User32.INSTANCE.GetWindowText(hWnd, name, name.length);
 
             // Find window with title starting with downcase "keyb" string
-            if (Native.toString(name).toLowerCase().startsWith("hell")) {
+            if (Native.toString(name).toLowerCase().startsWith("new")) {
                 // Bring the window to the front
                 User32.INSTANCE.SetForegroundWindow(hWnd);
 

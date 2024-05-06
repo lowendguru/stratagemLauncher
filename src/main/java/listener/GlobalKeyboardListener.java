@@ -11,6 +11,8 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Map.Entry;
 
+import static listener.NativeKeySender.pressNativeSequence;
+
 public class GlobalKeyboardListener {
 
     public ArrayList<Stratagem> stratagemMap;
@@ -40,83 +42,81 @@ public class GlobalKeyboardListener {
                 switch (eventValue) {
                     case 96:
                         // numpad 0
-                        pressSequence(sequenceFromStratagemMap(0));
+                        pressNativeSequence(sequenceFromStratagemMap(0));
                         break;
                     case 48:
                         // alphabetic 0
-                        pressSequence(sequenceFromStratagemMap(0));
+                        pressNativeSequence(sequenceFromStratagemMap(0));
                         break;
                     case 97:
                         // numpad 1
-                        pressSequence(sequenceFromStratagemMap(1));
+                        pressNativeSequence(sequenceFromStratagemMap(1));
                         break;
                     case 98:
                         // numpad 2
-                        pressSequence(sequenceFromStratagemMap(2));
+                        pressNativeSequence(sequenceFromStratagemMap(2));
                         break;
                     case 99:
                         // numpad 3
-                        pressSequence(sequenceFromStratagemMap(3));
+                        pressNativeSequence(sequenceFromStratagemMap(3));
                         break;
                     case 100:
                         // numpad 4
-                        pressSequence(sequenceFromStratagemMap(4));
+                        pressNativeSequence(sequenceFromStratagemMap(4));
                         break;
                     case 52:
                         // alphabetic 4
-                        pressSequence(sequenceFromStratagemMap(4));
+                        pressNativeSequence(sequenceFromStratagemMap(4));
                         break;
                     case 101:
                         // numpad 5
-                        pressSequence(sequenceFromStratagemMap(5));
+                        pressNativeSequence(sequenceFromStratagemMap(5));
                         break;
                     case 53:
                         // alphabetic 5
-                        pressSequence(sequenceFromStratagemMap(5));
+                        pressNativeSequence(sequenceFromStratagemMap(5));
                         break;
                     case 102:
                         // numpad 6
-                        pressSequence(sequenceFromStratagemMap(6));
+                        pressNativeSequence(sequenceFromStratagemMap(6));
                         break;
                     case 54:
                         // alphabetic 6
-                        pressSequence(sequenceFromStratagemMap(6));
+                        pressNativeSequence(sequenceFromStratagemMap(6));
                         break;
                     case 103:
                         // numpad 7
-                        pressSequence(sequenceFromStratagemMap(7));
+                        pressNativeSequence(sequenceFromStratagemMap(7));
                         break;
                     case 55:
                         // alphabetic 7
-                        pressSequence(sequenceFromStratagemMap(7));
+                        pressNativeSequence(sequenceFromStratagemMap(7));
                         break;
                     case 104:
                         // numpad 8
-                        pressSequence(sequenceFromStratagemMap(8));
+                        pressNativeSequence(sequenceFromStratagemMap(8));
                         break;
                     case 56:
                         // alphabetic 8
-                        pressSequence(sequenceFromStratagemMap(8));
+                        pressNativeSequence(sequenceFromStratagemMap(8));
                         break;
                     case 105:
-                        // numpad 9
-                        pressSequence(sequenceFromStratagemMap(9));
-                        break;
                     case 57:
                         // alphabetic 9
-                        pressSequence(sequenceFromStratagemMap(9));
+                        // numpad 9
+                        pressNativeSequence(sequenceFromStratagemMap(9));
                         break;
                     case 110:
                         // numpad . (dot)
-                        pressSequence(sequenceFromStratagemMap(10));
+                        pressNativeSequence(sequenceFromStratagemMap(10));
                         break;
                     case 190:
                         // alphabetic . (dot)
-                        pressSequence(sequenceFromStratagemMap(10));
+                        pressNativeSequence(sequenceFromStratagemMap(10));
                         break;
                     case 109:
                         // numpad minus - (reinforce while mind controlled)
-                        pressSequence("swads");
+                        pressNativeSequence("swads");
                         break;
                 }
 
