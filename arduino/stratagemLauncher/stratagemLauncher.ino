@@ -12,6 +12,18 @@ unsigned long startMillis;
 unsigned long currentMillis;
 unsigned long period;
 
+int KEY_W = 87;
+int KEY_A = 65;
+int KEY_S = 83;
+int KEY_D = 68;
+
+
+int MIN_DELAY_BETWEEN_KEYSTROKE = 100;
+int MAX_DELAY_BETWEEN_KEYSTROKE = 150;
+
+int MIN_DELAY_PRESS_KEY = 50;
+int MAX_DELAY_PRESS_KEY = 70;
+
 void setup() {
   // declare pin 9 to be an output for LED:
   pinMode(led, OUTPUT);
@@ -50,21 +62,42 @@ void loop() {
 
     // do once
     if (startMillis != 0) {
-       Keyboard.press(KEY_LEFT_CTRL);
-       delay(30); 
-       Keyboard.write("a");
-       delay(30);
-       Keyboard.write("a");
-       delay(30);
-       Keyboard.write("w");
-       delay(30);
-       Keyboard.write("d");
-       delay(30);
-       Keyboard.releaseAll();
-     
+
+      // resupply strat SSWD
+
+      delay(3000);
+      Keyboard.press(KEY_LEFT_CTRL);
+      delayBetweenKeystrokes();
+      typeKey(KEY_S);
+      typeKey(KEY_S);
+      typeKey(KEY_W);
+      typeKey(KEY_D);
+
+      Keyboard.releaseAll();
+
 
       startMillis = 0;
     }
   }
 }
+
+// TODO: hacer un metodo que reciba un array de KEY_
+void typeSequence(){
+
+}
+
+
+void typeKey(int key) {
+  Keyboard.press(key);
+  delay(50);
+  Keyboard.release(key);
+  delayBetweenKeystrokes();
+}
+
+void delayPressKey() {
+  delay(random(MIN_DELAY_PRESS_KEY, MAX_DELAY_PRESS_KEY));
+}
+
+void delayBetweenKeystrokes() {
+  delay(random(MIN_DELAY_BETWEEN_KEYSTROKE, MAX_DELAY_BETWEEN_KEYSTROKE));
 }
