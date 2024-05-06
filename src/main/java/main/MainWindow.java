@@ -20,7 +20,7 @@ import utils.FileHelper;
 
 public class MainWindow {
 
-	public static final boolean TESTING = false;
+	public static final boolean TESTING = true;
 	public static final int KEY_DELAY = 25;
 	private JFrame mainFrame;
 	private StratagemSelectionWindow stratagemSelectionWindow = new StratagemSelectionWindow();
