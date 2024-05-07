@@ -4,6 +4,9 @@ import com.sun.jna.Native;
 import com.sun.jna.platform.win32.*;
 import main.MainWindow;
 
+import static utils.DelayHelper.delayKeypress;
+import static utils.DelayHelper.delayKeystroke;
+
 public class NativeKeySender {
     public static void pressNativeSequence(String sequence) {
         // Loop all windows
@@ -26,46 +29,38 @@ public class NativeKeySender {
                 input.input.ki.time = new WinDef.DWORD(0);
                 input.input.ki.dwExtraInfo = new BaseTSD.ULONG_PTR(0);
 
-                try {
-                    // Press CTRL key
-                    if (!MainWindow.TESTING) {
-                        // VK_CONTROL(0x11),
-                        // Press "CTRL"
-                        input.input.ki.wVk = new WinDef.WORD(Win32VK.VK_CONTROL.code);
-                        input.input.ki.dwFlags = new WinDef.DWORD(0);  // keydown
-                        User32.INSTANCE.SendInput(new WinDef.DWORD(1), (WinUser.INPUT[]) input.toArray(1), input.size());
-                        Thread.sleep(MainWindow.KEY_DELAY);
-                    }
+                // Press CTRL key
+                if (!MainWindow.TESTING) {
+                    input.input.ki.wVk = new WinDef.WORD(Win32VK.VK_CONTROL.code);
+                    input.input.ki.dwFlags = new WinDef.DWORD(0);  // keydown
+                    User32.INSTANCE.SendInput(new WinDef.DWORD(1), (WinUser.INPUT[]) input.toArray(1), input.size());
+                    delayKeystroke();
+                }
 
-                    for (int i = 0; i < sequence.length(); i++) {
-                        int ch = sequence.charAt(i);
-                        System.out.println("int char= " + ch);
-                        switch (ch) {
-                            case 119:
-                                pressKey(input, Win32VK.VK_W.code);
-                                break;
-                            case 97:
-                                pressKey(input, Win32VK.VK_A.code);
-                                break;
-                            case 115:
-                                pressKey(input, Win32VK.VK_S.code);
-                                break;
-                            case 100:
-                                pressKey(input, Win32VK.VK_D.code);
-                                break;
-                        }
-                        Thread.sleep(MainWindow.KEY_DELAY);
+                for (int i = 0; i < sequence.length(); i++) {
+                    int ch = sequence.charAt(i);
+                    System.out.println("int char= " + ch);
+                    switch (ch) {
+                        case 119:
+                            pressKey(input, Win32VK.VK_W.code);
+                            break;
+                        case 97:
+                            pressKey(input, Win32VK.VK_A.code);
+                            break;
+                        case 115:
+                            pressKey(input, Win32VK.VK_S.code);
+                            break;
+                        case 100:
+                            pressKey(input, Win32VK.VK_D.code);
+                            break;
                     }
-                    if (!MainWindow.TESTING) {
-                        // Release CTRL
-                        input.input.ki.wVk = new WinDef.WORD(Win32VK.VK_CONTROL.code);
-                        input.input.ki.dwFlags = new WinDef.DWORD(2);  // keyup
-                        User32.INSTANCE.SendInput(new WinDef.DWORD(1), (WinUser.INPUT[]) input.toArray(1), input.size());
-                    }
-
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    delayKeystroke();
+                }
+                if (!MainWindow.TESTING) {
+                    // Release CTRL
+                    input.input.ki.wVk = new WinDef.WORD(Win32VK.VK_CONTROL.code);
+                    input.input.ki.dwFlags = new WinDef.DWORD(2);  // keyup
+                    User32.INSTANCE.SendInput(new WinDef.DWORD(1), (WinUser.INPUT[]) input.toArray(1), input.size());
                 }
 
                 return false; // Found
@@ -75,13 +70,13 @@ public class NativeKeySender {
         }, null);
     }
 
-    private static void pressKey(WinUser.INPUT input, long key) throws InterruptedException {
+    private static void pressKey(WinUser.INPUT input, long key) {
         // Press "W"
         input.input.ki.wVk = new WinDef.WORD(key); // 0x41
         input.input.ki.dwFlags = new WinDef.DWORD(0);  // keydown
         User32.INSTANCE.SendInput(new WinDef.DWORD(1), (WinUser.INPUT[]) input.toArray(1), input.size());
 
-        Thread.sleep(MainWindow.KEY_DELAY);
+        delayKeypress();
 
         // Release "W"
         input.input.ki.wVk = new WinDef.WORD(key); // 0x41

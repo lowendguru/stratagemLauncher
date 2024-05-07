@@ -22,6 +22,11 @@ public class MainWindow {
 
 	public static final boolean TESTING = true;
 	public static final int KEY_DELAY = 25;
+	public static final int MIN_DELAY_BETWEEN_KEYSTROKE = 100;
+	public static final int MAX_DELAY_BETWEEN_KEYSTROKE = 150;
+
+	public static final int MIN_DELAY_PRESS_KEY = 50;
+	public static final int MAX_DELAY_PRESS_KEY = 70;
 	private JFrame mainFrame;
 	private StratagemSelectionWindow stratagemSelectionWindow = new StratagemSelectionWindow();
 	private static final int STRATAGEM_MAP_SIZE = 11;
