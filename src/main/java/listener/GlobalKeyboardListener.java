@@ -41,11 +41,9 @@ public class GlobalKeyboardListener {
 
                 switch (eventValue) {
                     case 96:
-                        // numpad 0
-                        pressNativeSequence(sequenceFromStratagemMap(0));
-                        break;
                     case 48:
                         // alphabetic 0
+                        // numpad 0
                         pressNativeSequence(sequenceFromStratagemMap(0));
                         break;
                     case 97:
@@ -61,43 +59,33 @@ public class GlobalKeyboardListener {
                         pressNativeSequence(sequenceFromStratagemMap(3));
                         break;
                     case 100:
+                    case 52:
+                        // alphabetic 4
                         // numpad 4
                         pressNativeSequence(sequenceFromStratagemMap(4));
                         break;
-                    case 52:
-                        // alphabetic 4
-                        pressNativeSequence(sequenceFromStratagemMap(4));
-                        break;
                     case 101:
+                    case 53:
+                        // alphabetic 5
                         // numpad 5
                         pressNativeSequence(sequenceFromStratagemMap(5));
                         break;
-                    case 53:
-                        // alphabetic 5
-                        pressNativeSequence(sequenceFromStratagemMap(5));
-                        break;
                     case 102:
+                    case 54:
+                        // alphabetic 6
                         // numpad 6
                         pressNativeSequence(sequenceFromStratagemMap(6));
                         break;
-                    case 54:
-                        // alphabetic 6
-                        pressNativeSequence(sequenceFromStratagemMap(6));
-                        break;
                     case 103:
+                    case 55:
+                        // alphabetic 7
                         // numpad 7
                         pressNativeSequence(sequenceFromStratagemMap(7));
                         break;
-                    case 55:
-                        // alphabetic 7
-                        pressNativeSequence(sequenceFromStratagemMap(7));
-                        break;
                     case 104:
-                        // numpad 8
-                        pressNativeSequence(sequenceFromStratagemMap(8));
-                        break;
                     case 56:
                         // alphabetic 8
+                        // numpad 8
                         pressNativeSequence(sequenceFromStratagemMap(8));
                         break;
                     case 105:
@@ -107,11 +95,9 @@ public class GlobalKeyboardListener {
                         pressNativeSequence(sequenceFromStratagemMap(9));
                         break;
                     case 110:
-                        // numpad . (dot)
-                        pressNativeSequence(sequenceFromStratagemMap(10));
-                        break;
                     case 190:
                         // alphabetic . (dot)
+                        // numpad . (dot)
                         pressNativeSequence(sequenceFromStratagemMap(10));
                         break;
                     case 109:
