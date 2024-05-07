@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Map.Entry;
 
 import static listener.NativeKeySender.pressNativeSequence;
+import static listener.NativeKeySenderJNI.pressNativeSequenceJNI;
 
 public class GlobalKeyboardListener {
 
@@ -44,65 +45,65 @@ public class GlobalKeyboardListener {
                     case 48:
                         // alphabetic 0
                         // numpad 0
-                        pressNativeSequence(sequenceFromStratagemMap(0));
+                        pressNativeSequenceJNI(sequenceFromStratagemMap(0));
                         break;
                     case 97:
                         // numpad 1
-                        pressNativeSequence(sequenceFromStratagemMap(1));
+                        pressNativeSequenceJNI(sequenceFromStratagemMap(1));
                         break;
                     case 98:
                         // numpad 2
-                        pressNativeSequence(sequenceFromStratagemMap(2));
+                        pressNativeSequenceJNI(sequenceFromStratagemMap(2));
                         break;
                     case 99:
                         // numpad 3
-                        pressNativeSequence(sequenceFromStratagemMap(3));
+                        pressNativeSequenceJNI(sequenceFromStratagemMap(3));
                         break;
                     case 100:
                     case 52:
                         // alphabetic 4
                         // numpad 4
-                        pressNativeSequence(sequenceFromStratagemMap(4));
+                        pressNativeSequenceJNI(sequenceFromStratagemMap(4));
                         break;
                     case 101:
                     case 53:
                         // alphabetic 5
                         // numpad 5
-                        pressNativeSequence(sequenceFromStratagemMap(5));
+                        pressNativeSequenceJNI(sequenceFromStratagemMap(5));
                         break;
                     case 102:
                     case 54:
                         // alphabetic 6
                         // numpad 6
-                        pressNativeSequence(sequenceFromStratagemMap(6));
+                        pressNativeSequenceJNI(sequenceFromStratagemMap(6));
                         break;
                     case 103:
                     case 55:
                         // alphabetic 7
                         // numpad 7
-                        pressNativeSequence(sequenceFromStratagemMap(7));
+                        pressNativeSequenceJNI(sequenceFromStratagemMap(7));
                         break;
                     case 104:
                     case 56:
                         // alphabetic 8
                         // numpad 8
-                        pressNativeSequence(sequenceFromStratagemMap(8));
+                        pressNativeSequenceJNI(sequenceFromStratagemMap(8));
                         break;
                     case 105:
                     case 57:
                         // alphabetic 9
                         // numpad 9
-                        pressNativeSequence(sequenceFromStratagemMap(9));
+                        pressNativeSequenceJNI(sequenceFromStratagemMap(9));
                         break;
                     case 110:
                     case 190:
                         // alphabetic . (dot)
                         // numpad . (dot)
-                        pressNativeSequence(sequenceFromStratagemMap(10));
+                        pressNativeSequenceJNI(sequenceFromStratagemMap(10));
                         break;
                     case 109:
                         // numpad minus - (reinforce while mind controlled)
-                        pressNativeSequence("swads");
+                        pressNativeSequenceJNI("swads");
                         break;
                 }
 
