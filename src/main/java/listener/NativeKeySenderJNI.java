@@ -2,14 +2,20 @@ package listener;
 
 import jnikeyboard.winkeyboard.Keyboard;
 import jnikeyboard.winkeyboard.ScanCode;
+import main.MainWindow;
 
 import static utils.DelayHelper.delayKeypress;
 import static utils.DelayHelper.delayKeystroke;
 
-public class NativeKeySenderJNI {
+public class NativeKeySenderJNI implements Runnable{
 
+    String sequence = "";
 
-    public static void pressNativeSequenceJNI(String sequence) {
+    public NativeKeySenderJNI(String sequence){
+        this.sequence = sequence;
+    }
+
+    public void run() {
 
         Keyboard myKeyboard = new Keyboard();
 
@@ -18,20 +24,24 @@ public class NativeKeySenderJNI {
             System.out.println("int char= " + ch);
             switch (ch) {
                 case 119:
-                    pressKey(myKeyboard, ScanCode.DIK_W);
                     System.out.println("Pressing W");
+                    pressKey(myKeyboard, ScanCode.DIK_W);
+
                     break;
                 case 97:
-                    pressKey(myKeyboard, ScanCode.DIK_A);
                     System.out.println("Pressing A");
+                    pressKey(myKeyboard, ScanCode.DIK_A);
+
                     break;
                 case 115:
-                    pressKey(myKeyboard, ScanCode.DIK_S);
                     System.out.println("Pressing S");
+                    pressKey(myKeyboard, ScanCode.DIK_S);
+
                     break;
                 case 100:
-                    pressKey(myKeyboard, ScanCode.DIK_D);
                     System.out.println("Pressing D");
+                    pressKey(myKeyboard, ScanCode.DIK_D);
+
                     break;
             }
             delayKeystroke();
@@ -45,5 +55,6 @@ public class NativeKeySenderJNI {
         delayKeypress();
         keyboard.winKeyRelease(keyScanCode);
     }
+
 
 }

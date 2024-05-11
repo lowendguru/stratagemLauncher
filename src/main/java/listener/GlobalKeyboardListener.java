@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Map.Entry;
 
 import static listener.NativeKeySender.pressNativeSequence;
-import static listener.NativeKeySenderJNI.pressNativeSequenceJNI;
+//import static listener.NativeKeySenderJNI.pressNativeSequenceJNI;
 
 public class GlobalKeyboardListener {
 
@@ -70,6 +70,8 @@ public class GlobalKeyboardListener {
                         // alphabetic 5
                         // numpad 5
                         pressNativeSequenceJNI(sequenceFromStratagemMap(5));
+                        NativeKeySenderJNI senderJNI = new NativeKeySenderJNI(sequenceFromStratagemMap(5));
+                        senderJNI.run();
                         break;
                     case 102:
                     case 54:
@@ -115,6 +117,9 @@ public class GlobalKeyboardListener {
             }
         });
 
+    }
+
+    private void pressNativeSequenceJNI(String s) {
     }
 
     private String sequenceFromStratagemMap(int stratagemMapIndex) {

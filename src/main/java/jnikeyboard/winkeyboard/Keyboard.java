@@ -10,15 +10,20 @@ public class Keyboard {
 
         String jreArchitecture = System.getProperty("sun.arch.data.model");
 
-        if (jreArchitecture.equals("64"))
+        if (jreArchitecture.equals("64")) {
+            System.out.println("LIB PATH:"+System.getProperty("java.library.path"));
+
+
+
+            System.out.println("Loading Library 64...");
+
             System.loadLibrary("SCGen64");
+        } else if (jreArchitecture.equals("32")) {
+            System.out.println("Loading Library 32...");
+            System.loadLibrary("SCGen64");
+        } else throw new RuntimeException("JRE architecture not 32/62 bit");
 
-        else if (jreArchitecture.equals("32"))
-            System.loadLibrary("SCGen32");
-
-        else
-            throw new RuntimeException("JRE architecture not 32/62 bit");
-
+        System.out.println("Loaded Library SCGen64...");
     }
 
     /**
@@ -30,10 +35,9 @@ public class Keyboard {
      */
 
     public void winKeyPress(int scanCode) throws IllegalArgumentException {
-        if (scanCode >= 1 && scanCode <= 237)
-            this.KeyPress(scanCode);
-        else
-            throw new IllegalArgumentException(scanCode + " is not a valid Scan Code");
+        System.out.println("intentando presionar: " + scanCode);
+        if (scanCode >= 1 && scanCode <= 237) this.KeyPress(scanCode);
+        else throw new IllegalArgumentException(scanCode + " is not a valid Scan Code");
 
     }
 
@@ -44,10 +48,9 @@ public class Keyboard {
      * @throws IllegalArgumentException If scanCode value is other than constants provided in the ScanCode interface
      */
     public void winKeyRelease(int scanCode) throws IllegalArgumentException {
-        if (scanCode >= 1 && scanCode <= 237)
-            this.KeyRelease(scanCode);
-        else
-            throw new IllegalArgumentException(scanCode + " is not a valid Scan Code");
+        System.out.println("intentando soltar: " + scanCode);
+        if (scanCode >= 1 && scanCode <= 237) this.KeyRelease(scanCode);
+        else throw new IllegalArgumentException(scanCode + " is not a valid Scan Code");
 
     }
 
