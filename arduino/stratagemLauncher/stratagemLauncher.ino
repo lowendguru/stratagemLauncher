@@ -1,28 +1,31 @@
 #include <Keyboard.h>
 #include <EEPROM.h>
+#include <Keypad.h>
+
+bool testing = true;
+
+const byte ROWS = 4;  //four rows
+const byte COLS = 4;  //four columns
+char keys[ROWS][COLS] = {
+  { '1', '2', '3', 'A' },
+  { '4', '5', '6', 'B' },
+  { '7', '8', '9', 'C' },
+  { '*', '0', '#', 'D' }
+};
+byte rowPins[ROWS] = { 9, 8, 7, 6 };  //connect to the row pinouts of the keypad
+byte colPins[COLS] = { 5, 4, 3, 2 };  //connect to the column pinouts of the keypad
+//Create an object of keypad
+Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
 int led = 13;        // the PWM pin the LED is attached to
 int brightness = 0;  // how bright the LED is
 int fadeAmount = 5;  // how many points to fade the LED by
 
-int eepromAddress = 0;
-int toggle;
+int MIN_DELAY_BETWEEN_KEYSTROKE = 75;
+int MAX_DELAY_BETWEEN_KEYSTROKE = 125;
 
-unsigned long startMillis;
-unsigned long currentMillis;
-unsigned long period;
-
-int KEY_W = 87;
-int KEY_A = 65;
-int KEY_S = 83;
-int KEY_D = 68;
-
-
-int MIN_DELAY_BETWEEN_KEYSTROKE = 100;
-int MAX_DELAY_BETWEEN_KEYSTROKE = 150;
-
-int MIN_DELAY_PRESS_KEY = 50;
-int MAX_DELAY_PRESS_KEY = 70;
+int MIN_DELAY_PRESS_KEY = 40;
+int MAX_DELAY_PRESS_KEY = 60;
 
 void setup() {
   // declare pin 9 to be an output for LED:
@@ -30,66 +33,43 @@ void setup() {
 
   // initialize keyboard control:
   Keyboard.begin();
-
-  startMillis = millis();  //initial start time
-
-  toggle = EEPROM.read(eepromAddress);
-
-  if (toggle == 1) {
-    // ON
-    EEPROM.write(eepromAddress, 0);
-  } else {
-    // OFF
-    analogWrite(led, 0);
-    EEPROM.write(eepromAddress, 1);
-  }
 }
 
-// the loop routine runs over and over again forever:
+
 void loop() {
-
-  if (toggle == 1) {
-    // set the brightness of pin 9:
-    analogWrite(led, brightness);
-    // change the brightness for next time through the loop:
-    brightness = brightness + fadeAmount;
-    // reverse the direction of the fading at the ends of the fade:
-    if (brightness <= 0 || brightness >= 255) {
-      fadeAmount = -fadeAmount;
-    }
-    // wait for 30 milliseconds to see the dimming effect
-    delay(30);
-
-    // do once
-    if (startMillis != 0) {
-
-      // resupply strat SSWD
-
-      delay(3000);
-      Keyboard.press(KEY_LEFT_CTRL);
-      delayBetweenKeystrokes();
-      typeKey(KEY_S);
-      typeKey(KEY_S);
-      typeKey(KEY_W);
-      typeKey(KEY_D);
-
-      Keyboard.releaseAll();
-
-
-      startMillis = 0;
-    }
+  char key = keypad.getKey();  // Read the key
+  // Print if key pressed
+  switch (key) {
+    case '1':  // reinforce
+      typeSequence("wsdaw");
+      break;
+    case '2':  // resupply
+      typeSequence("sswd");
+      break;
+    case '3':  // hellbomb
+      typeSequence("swaswdsw");
+      break;
   }
 }
 
-// TODO: hacer un metodo que reciba un array de KEY_
-void typeSequence(){
 
+void typeSequence(String sequence) {
+  analogWrite(led, 255);  // led ON
+  if (!testing) {
+    Keyboard.press(KEY_LEFT_CTRL);
+    delayBetweenKeystrokes();
+  }
+  for (int i = 0; i < sequence.length(); i++) {
+    typeKey(sequence.charAt(i));
+  }
+  Keyboard.releaseAll();
+  analogWrite(led, 0);  // led OFF
 }
 
 
 void typeKey(int key) {
   Keyboard.press(key);
-  delay(50);
+  delayPressKey();
   Keyboard.release(key);
   delayBetweenKeystrokes();
 }
@@ -100,4 +80,7 @@ void delayPressKey() {
 
 void delayBetweenKeystrokes() {
   delay(random(MIN_DELAY_BETWEEN_KEYSTROKE, MAX_DELAY_BETWEEN_KEYSTROKE));
+}
+
+void ledIndication() {
 }
