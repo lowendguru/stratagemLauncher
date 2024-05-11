@@ -1,5 +1,4 @@
 #include <Keyboard.h>
-#include <EEPROM.h>
 #include <Keypad.h>
 
 bool testing = true;
@@ -17,17 +16,17 @@ byte colPins[COLS] = { 5, 4, 3, 2 };  //connect to the column pinouts of the key
 //Create an object of keypad
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
-int led = 13;  // the PWM pin the LED is attached to
+const int LED_PIN = 13;  // the PWM pin the LED is attached to
 
-int MIN_DELAY_BETWEEN_KEYSTROKE = 85;
-int MAX_DELAY_BETWEEN_KEYSTROKE = 135;
+const int MIN_DELAY_BETWEEN_KEYSTROKE = 85;
+const int MAX_DELAY_BETWEEN_KEYSTROKE = 135;
 
-int MIN_DELAY_PRESS_KEY = 45;
-int MAX_DELAY_PRESS_KEY = 65;
+const int MIN_DELAY_PRESS_KEY = 45;
+const int MAX_DELAY_PRESS_KEY = 65;
 
 void setup() {
   // declare pin 9 to be an output for LED:
-  pinMode(led, OUTPUT);
+  pinMode(LED_PIN, OUTPUT);
 
   // initialize keyboard control:
   Keyboard.begin();
@@ -51,7 +50,7 @@ void loop() {
 
 
 void typeSequence(String sequence) {
-  analogWrite(led, 255);  // led ON
+  analogWrite(LED_PIN, 255);  // led ON
   if (!testing) {
     Keyboard.press(KEY_LEFT_CTRL);
     delayBetweenKeystrokes();
@@ -60,7 +59,7 @@ void typeSequence(String sequence) {
     typeKey(sequence.charAt(i));
   }
   Keyboard.releaseAll();
-  analogWrite(led, 0);  // led OFF
+  analogWrite(LED_PIN, 0);  // led OFF
 }
 
 
