@@ -16,7 +16,6 @@ byte colPins[COLS] = { 5, 4, 3, 2 };  //connect to the column pinouts of the key
 //Create an object of keypad
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
-const int LED_PIN = 13;  // the PWM pin the LED is attached to
 
 const int MIN_DELAY_BETWEEN_KEYSTROKE = 85;
 const int MAX_DELAY_BETWEEN_KEYSTROKE = 135;
@@ -25,8 +24,16 @@ const int MIN_DELAY_PRESS_KEY = 45;
 const int MAX_DELAY_PRESS_KEY = 65;
 
 void setup() {
-  // declare pin 9 to be an output for LED:
-  pinMode(LED_PIN, OUTPUT);
+
+  // initialize leds
+  pinMode(A0, OUTPUT);
+  pinMode(A1, OUTPUT);
+  pinMode(A2, OUTPUT);
+  pinMode(A3, OUTPUT);
+  digitalWrite(A0, LOW);
+  digitalWrite(A1, LOW);
+  digitalWrite(A2, LOW);
+  digitalWrite(A3, LOW);
 
   // initialize keyboard control:
   Keyboard.begin();
@@ -50,7 +57,6 @@ void loop() {
 
 
 void typeSequence(String sequence) {
-  analogWrite(LED_PIN, 255);  // led ON
   if (!testing) {
     Keyboard.press(KEY_LEFT_CTRL);
     delayBetweenKeystrokes();
@@ -59,7 +65,6 @@ void typeSequence(String sequence) {
     typeKey(sequence.charAt(i));
   }
   Keyboard.releaseAll();
-  analogWrite(LED_PIN, 0);  // led OFF
 }
 
 
@@ -76,4 +81,21 @@ void delayPressKey() {
 
 void delayBetweenKeystrokes() {
   delay(random(MIN_DELAY_BETWEEN_KEYSTROKE, MAX_DELAY_BETWEEN_KEYSTROKE));
+}
+
+void led(int led, bool state) {
+  switch (led) {
+    case 1:
+      digitalWrite(A0, state);
+      break;
+    case 2:
+      digitalWrite(A1, state);
+      break;
+    case 3:
+      digitalWrite(A2, state);
+      break;
+    case 4:
+      digitalWrite(A3, state);
+      break;
+  }
 }
