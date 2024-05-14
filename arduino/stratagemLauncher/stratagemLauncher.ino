@@ -40,6 +40,39 @@ void setup() {
 
 void loop() {
   char key = keypad.getKey();  // Read the key
+  basicKeyMap(key);
+  presetKeyMap(key);
+}
+
+void presetKeyMap(int key) {
+  if (activePreset == 1) {  // PRESET A
+    switch (key) {
+      case '4':  // orbital laser
+        typeSequence("dswds");
+        break;
+      case '5':  // eagle cluster bomb
+        typeSequence("wdssd");
+        break;
+      case '6':  // eagle airstrike
+        typeSequence("wdsd");
+        break;
+      case '7':  // orbital railcannon strike
+        typeSequence("dwssd");
+        break;
+      case '8':  //
+        typeSequence("");
+        break;
+      case '9':  //
+        typeSequence("");
+        break;
+      case '0':  // eagle 500kg bomb
+        typeSequence("wdsss");
+        break;
+    }
+  }
+}
+
+void basicKeyMap(int key) {
   switch (key) {
     case '1':  // reinforce
       typeSequence("wsdaw");
