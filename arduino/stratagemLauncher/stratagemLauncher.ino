@@ -23,14 +23,18 @@ const int MAX_DELAY_BETWEEN_KEYSTROKE = 135;
 const int MIN_DELAY_PRESS_KEY = 45;
 const int MAX_DELAY_PRESS_KEY = 65;
 
+int activePreset = 1;
+
 void setup() {
 
   // initialize leds
   initializeLeds();
 
-
   // initialize keyboard control:
   Keyboard.begin();
+
+  // default preset
+  enablePreset(1);
 }
 
 
@@ -46,9 +50,27 @@ void loop() {
     case '3':  // hellbomb
       typeSequence("swaswdsw");
       break;
+    case 'A':  // preset A (1)
+      enablePreset(1);
+      break;
+    case 'B':  // preset B (2)
+      enablePreset(2);
+      break;
+    case 'C':  // preset C (3)
+      enablePreset(3);
+      break;
+    case 'D':  // preset D (4)
+      enablePreset(4);
+      break;
   }
 }
 
+void enablePreset(int preset) {
+  led(activePreset, false);
+  led(preset, true);
+  activePreset = preset;
+  //TODO: enviar evento de teclado a monitor
+}
 
 void typeSequence(String sequence) {
   if (!testing) {
