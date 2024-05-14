@@ -1,7 +1,7 @@
 #include <Keyboard.h>
 #include <Keypad.h>
 
-bool testing = true;
+bool testing = false;
 
 const byte ROWS = 4;  //four rows
 const byte COLS = 4;  //four columns
@@ -17,10 +17,10 @@ byte colPins[COLS] = { 5, 4, 3, 2 };  //connect to the column pinouts of the key
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
 
-const int MIN_DELAY_BETWEEN_KEYSTROKE = 85;
+const int MIN_DELAY_BETWEEN_KEYSTROKE = 95;
 const int MAX_DELAY_BETWEEN_KEYSTROKE = 135;
 
-const int MIN_DELAY_PRESS_KEY = 45;
+const int MIN_DELAY_PRESS_KEY = 50;
 const int MAX_DELAY_PRESS_KEY = 65;
 
 int activePreset = 1;
