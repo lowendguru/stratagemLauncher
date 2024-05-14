@@ -26,14 +26,8 @@ const int MAX_DELAY_PRESS_KEY = 65;
 void setup() {
 
   // initialize leds
-  pinMode(A0, OUTPUT);
-  pinMode(A1, OUTPUT);
-  pinMode(A2, OUTPUT);
-  pinMode(A3, OUTPUT);
-  digitalWrite(A0, LOW);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
-  digitalWrite(A3, LOW);
+  initializeLeds();
+
 
   // initialize keyboard control:
   Keyboard.begin();
@@ -97,5 +91,18 @@ void led(int led, bool state) {
     case 4:
       digitalWrite(A3, state);
       break;
+  }
+}
+
+void initializeLeds() {
+  pinMode(A0, OUTPUT);
+  pinMode(A1, OUTPUT);
+  pinMode(A2, OUTPUT);
+  pinMode(A3, OUTPUT);
+
+  for (int i = 1; i < 5; i++) {
+    led(i, true);
+    delay(250);
+    led(i, false);
   }
 }
