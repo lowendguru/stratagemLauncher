@@ -41,7 +41,7 @@ void setup() {
 void loop() {
   char key = keypad.getKey();  // Read the key
   basicKeyMap(key);
-  presetKeyMap(key);
+  // presetKeyMap(key);
 }
 
 void presetKeyMap(int key) {
@@ -75,13 +75,40 @@ void presetKeyMap(int key) {
 void basicKeyMap(int key) {
   switch (key) {
     case '1':  // reinforce
-      typeSequence("wsdaw");
+      enablePreset(1);
       break;
     case '2':  // resupply
-      typeSequence("sswd");
+      enablePreset(1);
       break;
     case '3':  // hellbomb
-      typeSequence("swaswdsw");
+      enablePreset(1);
+      break;
+    case '4':  // hellbomb
+      enablePreset(2);
+      break;
+    case '5':  // hellbomb
+      enablePreset(2);
+      break;
+    case '6':  // hellbomb
+      enablePreset(2);
+      break;
+    case '7':  // preset C (3)
+      enablePreset(3);
+      break;
+    case '8':  // preset C (3)
+      enablePreset(3);
+      break;
+    case '9':  // preset C (3)
+      enablePreset(3);
+      break;
+    case '*':  // preset D (4)
+      enablePreset(4);
+      break;
+    case '0':  // preset D (4)
+      enablePreset(4);
+      break;
+    case '#':  // preset D (4)
+      enablePreset(4);
       break;
     case 'A':  // preset A (1)
       enablePreset(1);
