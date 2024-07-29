@@ -1,5 +1,6 @@
 #include <Keyboard.h>
 #include <Keypad.h>
+#include <Mouse.h>
 
 bool testing = false;
 
@@ -17,13 +18,18 @@ byte colPins[COLS] = { 5, 4, 3, 2 };  //connect to the column pinouts of the key
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
 
-const int MIN_DELAY_BETWEEN_KEYSTROKE = 95;
-const int MAX_DELAY_BETWEEN_KEYSTROKE = 135;
+const int MIN_DELAY_BETWEEN_KEYSTROKE = 90;
+const int MAX_DELAY_BETWEEN_KEYSTROKE = 130;
 
 const int MIN_DELAY_PRESS_KEY = 50;
-const int MAX_DELAY_PRESS_KEY = 65;
+const int MAX_DELAY_PRESS_KEY = 60;
 
 int activePreset = 1;
+bool mouseMoverToggle = false;
+unsigned long startMillis;
+unsigned long currentMillis;
+unsigned long period;
+int ledBoard = 13;
 
 void setup() {
 
@@ -35,6 +41,11 @@ void setup() {
 
   // default preset
   enablePreset(1);
+
+  // initialize mouse control
+  Mouse.begin();
+  startMillis = millis();  //initial start time
+  period = 120000;         // 2 minutes
 }
 
 
@@ -42,6 +53,8 @@ void loop() {
   char key = keypad.getKey();  // Read the key
   basicKeyMap(key);
   presetKeyMap(key);
+
+  mouseMover();
 }
 
 void presetKeyMap(int key) {
@@ -59,14 +72,14 @@ void presetKeyMap(int key) {
       case '7':  // orbital railcannon strike
         typeSequence("dwssd");
         break;
-      case '8':  //
-        typeSequence("");
+      case '8':  // eagle airstrike
+        typeSequence("wdsd");
         break;
-      case '9':  //
-        typeSequence("");
+      case '9':  // mortar EMS sentry
+        typeSequence("swdsd");
         break;
-      case '0':  // eagle 500kg bomb
-        typeSequence("wdsss");
+      case '0':  // autocanon
+        typeSequence("saswwd");
         break;
     }
   }
@@ -85,6 +98,7 @@ void basicKeyMap(int key) {
       break;
     case 'A':  // preset A (1)
       enablePreset(1);
+      toggleMouseMover();
       break;
     case 'B':  // preset B (2)
       enablePreset(2);
@@ -154,10 +168,31 @@ void initializeLeds() {
   pinMode(A1, OUTPUT);
   pinMode(A2, OUTPUT);
   pinMode(A3, OUTPUT);
+  pinMode(ledBoard, OUTPUT);
 
   for (int i = 1; i < 5; i++) {
     led(i, true);
     delay(250);
     led(i, false);
+  }
+  digitalWrite(ledBoard, false);
+}
+
+void toggleMouseMover() {
+  digitalWrite(ledBoard, false);
+  mouseMoverToggle = !mouseMoverToggle;
+}
+
+void mouseMover() {
+  if (mouseMoverToggle) {
+    digitalWrite(ledBoard, true);
+    currentMillis = millis();  //get the current time
+    if (currentMillis - startMillis >= period) {
+      // move mouse
+      Mouse.move(2, 0);
+      delay(50);
+      Mouse.move(-2, 0);
+      startMillis = currentMillis;
+    }
   }
 }
